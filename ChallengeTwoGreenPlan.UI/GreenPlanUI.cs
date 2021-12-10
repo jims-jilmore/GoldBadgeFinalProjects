@@ -8,5 +8,6 @@ namespace ChallengeTwoGreenPlan.UI
 {
     class GreenPlanUI
     {
+        // StartMenu, Main Menu
     }
 }

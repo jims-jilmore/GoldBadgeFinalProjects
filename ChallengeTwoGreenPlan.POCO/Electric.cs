@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ChallengeTwoGreenPlan.POCO
 {
-    public class Class1
+    class Electric
     {
+        // Potential Properties: Make, Model, Year, VehiclePrice, HasIncentive, FuelCost(OperatingCost?)
     }
 }

@@ -8,5 +8,6 @@ namespace ChallengeOneCafe.UI
 {
     class CafeUI
     {
+        // Start Menu, Main Menu
     }
 }

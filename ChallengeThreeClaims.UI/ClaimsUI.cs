@@ -8,5 +8,6 @@ namespace ChallengeThreeClaims.UI
 {
     class ClaimsUI
     {
+        // Start Menu, Main Menu(Manage Claim Menu)
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ChallengeOneCafe.POCO
 {
-    public class Class1
+    public class Menu
     {
+        // Properties: MealNumber, MealName, Description, List of Ingredients, Pricing
     }
 }
