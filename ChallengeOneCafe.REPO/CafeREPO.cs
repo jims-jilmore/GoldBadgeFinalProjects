@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChallengeOneCafe.REPO
 {
-    public class Class1
+    public class CafeREPO
     {
+        // Create Menu Items, Delete Menu Items, Display Menu Items, Display Menu Item Ingredients
+        // Updating items not neccessary but will do if time allows
     }
 }
