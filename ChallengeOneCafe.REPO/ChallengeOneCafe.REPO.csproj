@@ -44,5 +44,11 @@
     <Compile Include="CafeREPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeOneCafe.POCO\ChallengeOneCafe.POCO.csproj">
+      <Project>{0849211D-820D-449A-860B-8C319128E0C1}</Project>
+      <Name>ChallengeOneCafe.POCO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

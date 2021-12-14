@@ -10,6 +10,8 @@ namespace ChallengeOneCafe.UI
     {
         static void Main(string[] args)
         {
-        }
+            CafeUI NewProgram = new CafeUI();
+            NewProgram.Run();
+        }   
     }
 }

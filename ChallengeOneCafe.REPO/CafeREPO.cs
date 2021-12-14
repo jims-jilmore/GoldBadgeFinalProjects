@@ -9,7 +9,7 @@ namespace ChallengeOneCafe.REPO
 {
     public class CafeREPO
     {
-        private readonly List<MenuItem> = new List<MenuItem>();
+        private readonly List<MenuItem> _menuItem = new List<MenuItem>();
         // Create Menu Items, Delete Menu Items, Display Menu Items, Display Menu Item Ingredients
         // Updating items not neccessary but will do if time allows
         
