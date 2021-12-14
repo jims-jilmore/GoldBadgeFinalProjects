@@ -1,0 +1,6 @@
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.POCO\bin\Debug\ChallengeOneCafe.POCO.dll
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.POCO\bin\Debug\ChallengeOneCafe.POCO.pdb
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.POCO\obj\Debug\ChallengeOneCafe.POCO.csproj.AssemblyReference.cache
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.POCO\obj\Debug\ChallengeOneCafe.POCO.csproj.CoreCompileInputs.cache
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.POCO\obj\Debug\ChallengeOneCafe.POCO.dll
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.POCO\obj\Debug\ChallengeOneCafe.POCO.pdb

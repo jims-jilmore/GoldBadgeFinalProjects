@@ -55,6 +55,10 @@
       <Project>{0849211D-820D-449A-860B-8C319128E0C1}</Project>
       <Name>ChallengeOneCafe.POCO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ChallengeOneCafe.REPO\ChallengeOneCafe.REPO.csproj">
+      <Project>{C39CC235-85A4-4C78-A00E-EE6DEF5B95B1}</Project>
+      <Name>ChallengeOneCafe.REPO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
