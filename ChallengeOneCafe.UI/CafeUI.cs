@@ -10,15 +10,15 @@ namespace ChallengeOneCafe.UI
 {
     class CafeUI
     {
-        private readonly List<MenuItem> _menuItem = new List<MenuItem>();
+        private readonly CafeREPO _menuItem = new CafeREPO();
         public void Run()
         {
+            Seed();
             RunProgram();
         }
         public void RunProgram()
         {
             StartMenu();
-            // This is where you could seed your fake database 
         }
         public void StartMenu()
         {
@@ -52,7 +52,7 @@ namespace ChallengeOneCafe.UI
                     ViewFullMenu();
                     break;
                 case "2":
-                    ViewMenuItem();
+                    ViewMenuItem(); 
                     break;
                 case "3":
                     AddMenuItem();
@@ -83,44 +83,83 @@ namespace ChallengeOneCafe.UI
                     break;
             }
         }
+
         public void ViewFullMenu()
         {
             Console.Clear();
-            Console.WriteLine("The current dishes on the menu are: ");
-            foreach (var menuItem in _menuItem)
+            Console.WriteLine(
+                "The current dishes on the menu are: \n" +
+                "****************************");
+
+            List<MenuItem> listMenuItems = _menuItem.ViewMenuList();
+
+            foreach (var item in listMenuItems)
             {
-                Console.WriteLine(menuItem); //definitely not sure if this is right
+                Console.WriteLine($"#{item.MealNumber}: {item.MealName}");
             }
-            /*
-            Console.WriteLine("Would you like to view a specific menu item? (y/n)");
-            string userInput = Console.ReadLine().ToLower();
-            switch (userInput)
-            {
-                case "y":
-                    ViewMenuItem();
-                    break;
-                case "n":
-                    MainMenu();
-                    break;
-                default:
-                    Console.WriteLine(
-                        "Enter Y to return view a specific menu item \n" +
-                        "Enter N to return to the main menu");
-                    break;
-            }
-            */
-        }
-        public void ViewMenuItem()
-        {
+            Console.WriteLine(
+                "****************************\n" +
+                "Enter a Meal Number to view details");
+            int mealNumberInput = int.Parse(Console.ReadLine());
+            MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput);
             
+            
+
         }
+        public void ViewMenuItem() //getting a menu item by its meal number
+        {
+            Console.Clear();
+            Console.WriteLine("Enter a meal item number to view details");
+            int mealNumberInput = int.Parse(Console.ReadLine());
+            MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput);
+            Console.WriteLine(
+                $"#{menuItem.MealNumber} {menuItem.MealName} \n" +
+                $"{menuItem.MealDescription} \n" +
+                $"Main Component: {menuItem.MainIngredient} \n" +
+                $"Sides: {menuItem.SideIngredients} \n" + //<<<---Not listing correctly. pretty sure i need a loop 
+                $"Price: ${menuItem.MealPrice}");
+            if (menuItem.IsAvailable == true)
+            {
+                Console.WriteLine("Available Now!");
+            }
+            Console.ReadLine();
+        }
+
         public void AddMenuItem()
         {
-
+            //Enter meal name
+            //Enter meal description
+            //Enter main ingredient
+            //Enter side ingredient(s)
+            //Enter price
+            //IsAvailable
         }
         public void DeleteMenuItem()
         {
-
+            Console.Clear();
+            Console.WriteLine("Enter the meal number you would like to remove");
+            int mealNumberToDelete = int.Parse(Console.ReadLine());
+            MenuItem menuItemToDelete = _menuItem.DeleteMenuItem(mealNumberToDelete);
+            Console.WriteLine($"{menuItemToDelete.MealName} has been successfully removed from the menu.");
+            Console.ReadLine();
         }
+        public void Seed()
+        {
+            MenuItem numberOne = new MenuItem(1, "King Burger", "Bacon Cheeseburger with Fries", "Beef", new List<string> { "fries", "pickle" }, 9.99m, true);
+            MenuItem numberTwo = new MenuItem(2, "Tendies Basket", "Chicken Tenders with Fries", "Chicken", new List<string> { "fries" }, 7.99m, true);
+
+            _menuItem.CreateMenuItem(numberOne);
+            _menuItem.CreateMenuItem(numberTwo);
+        }
+
+        //Helper Method that failed
+        /*
+        public void DisplayItemDetail(int inputToDisplay)
+        {
+            inputToDisplay = int.Parse(Console.ReadLine());
+            MenuItem menuItemToDisplay = _menuItem.ViewMenuItem(inputToDisplay);
+            Console.WriteLine($"#test");
+        }
+        */
     }
 }

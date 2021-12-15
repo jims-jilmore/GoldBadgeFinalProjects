@@ -7,3 +7,5 @@ C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\obj\
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.csproj.CoreCompileInputs.cache
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.exe
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.pdb
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.REPO.dll
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.REPO.pdb
