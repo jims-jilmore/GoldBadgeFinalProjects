@@ -94,24 +94,68 @@ namespace ChallengeOneCafe.UI
             List<MenuItem> listMenuItems = _menuItem.ViewMenuList();
 
             foreach (var item in listMenuItems)
-            {
-                Console.WriteLine($"#{item.MealNumber}: {item.MealName}");
+            { 
+                Console.WriteLine($"{item.MealNumber}: {item.MealName}");
             }
             Console.WriteLine(
                 "****************************\n" +
-                "Enter a Meal Number to view details");
+                "Press 1 to View a specific dish | Press 2 to return to Main Menu");
             int mealNumberInput = int.Parse(Console.ReadLine());
-            MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput);
-            
-            
-
+            //MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput);
+            switch (mealNumberInput)
+            {
+                case 1:
+                    ViewMenuItem();
+                    break;
+                case 2:
+                    MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("Please select an option");
+                    break;
+            }
         }
+
+        /*public void DisplayFullMenu()
+        {
+            Console.Clear();
+            Console.WriteLine(
+                "The current dishes on the menu are: \n" +
+                "****************************");
+
+            List<MenuItem> listMenuItems = _menuItem.ViewMenuList();
+
+            foreach (var item in listMenuItems)
+            {
+                Console.WriteLine($"{item.MealNumber}: {item.MealName}");
+            }
+            Console.WriteLine(
+                "****************************\n" +
+                "Press 1 to View a specific dish | Press 2 to return to Main Menu");
+            int mealNumberInput = int.Parse(Console.ReadLine());
+            //MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput);
+            switch (mealNumberInput)
+            {
+                case 1:
+                    ViewMenuItem();
+                    break;
+                case 2:
+                    MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("Please select an option");
+                    break;
+            }
+        }
+        */
         public void ViewMenuItem() //getting a menu item by its meal number
         {
             Console.Clear();
+            //22DisplayFullMenu();
             Console.WriteLine("Enter a meal item number to view details");
             int mealNumberInput = int.Parse(Console.ReadLine());
             MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput);
+            Console.Clear();
             Console.WriteLine(
                 $"#{menuItem.MealNumber} {menuItem.MealName} \n" +
                 $"{menuItem.MealDescription} \n" +
