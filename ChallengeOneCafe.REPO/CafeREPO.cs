@@ -1,9 +1,5 @@
 ﻿using ChallengeOneCafe.POCO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChallengeOneCafe.REPO
 {
@@ -24,14 +20,20 @@ namespace ChallengeOneCafe.REPO
             _menuItem.Add(menuItemToCreate);
             return true;
         }
-
-        // Update (not req'd)
-        
+        public bool CreateSideItem(MenuItem sideItemToCreate)
+        {
+            if (sideItemToCreate is null)
+            {
+                return false;
+            }
+            _menuItem.Add(sideItemToCreate);
+            return true;
+            
+        }
         public List<MenuItem> ViewMenuList()
         {
             return _menuItem;
         }
-
         public MenuItem ViewMenuItem(int mealNumber)
         {
             foreach (var menuItem in _menuItem)
@@ -43,15 +45,14 @@ namespace ChallengeOneCafe.REPO
             }
             return null;
         }
-        
         public MenuItem DeleteMenuItem(int menuItemToDelete)
         {
-            foreach (var menuItem in _menuItem)
+            foreach (MenuItem menuItem in _menuItem)
             {
                 if (menuItem.MealNumber == menuItemToDelete)
                 {
                     _menuItem.Remove(menuItem);
-                    break;
+                    return menuItem;
                 }
             }
             return null;

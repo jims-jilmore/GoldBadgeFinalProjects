@@ -9,7 +9,8 @@ namespace ChallengeOneCafe.TESTS
         [TestMethod]
         public void TestMethod1()
         {
-            //test-test-test
+            //I'll come back to these. Been testing the program heavily just not using test methods
+            //Program Function from Front End 
         }
     }
 }

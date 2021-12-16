@@ -44,5 +44,11 @@
     <Compile Include="GreenPlanREPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeTwoGreenPlan.POCO\ChallengeTwoGreenPlan.POCO.csproj">
+      <Project>{5c89f23d-cccb-4f05-aac9-ba1cba8578e8}</Project>
+      <Name>ChallengeTwoGreenPlan.POCO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
