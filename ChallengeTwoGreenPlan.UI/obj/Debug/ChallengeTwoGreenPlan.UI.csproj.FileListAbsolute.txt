@@ -7,3 +7,5 @@ C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.REPO.pdb
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.exe
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.pdb
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.POCO.dll
+C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.POCO.pdb

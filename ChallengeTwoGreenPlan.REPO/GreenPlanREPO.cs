@@ -10,7 +10,7 @@ namespace ChallengeTwoGreenPlan.REPO
     public class GreenPlanREPO
     {
         private readonly List<Vehicle> _vehicle = new List<Vehicle>();
-        private int generateVehicleId = 0; // <<<-Curious about generating different types of unique id's (especially how to use and manipulate hast tables)
+        private int generateVehicleId = 0; 
 
         public bool CreateVehicle(Vehicle vehicle)
         {
@@ -26,7 +26,7 @@ namespace ChallengeTwoGreenPlan.REPO
         {
             return _vehicle;
         }
-        public Vehicle ViewSingleVehicle(int vehicleId)
+        public Vehicle ViewVehicleById(int vehicleId)
         {
            foreach (var vehicle in _vehicle)
             {
@@ -37,21 +37,34 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
+
         //Compare Vehicle(s)?
-
-        public List<Vehicle> UpdateVehicleInfo(Vehicle vehicle)
+        /*public Vehicle UpdateVehicleInfo(Vehicle vehicleToUpdate)
         {
-            // alter old info | return new info
-
             
-        }
-
-        public void RemoveVehicle(Vehicle vehicle)
+        }*/
+        public Vehicle RemoveVehicle(int vehicleId)
         {
-            _vehicle.Remove(vehicle);
+            foreach (var vehicle in _vehicle)
+            {
+                if (vehicle.IdNumber == vehicleId)
+                {
+                    _vehicle.Remove(vehicle);
+                    return vehicle;
+                }
+            }
+            return null;
         }
-
-
-
+        public void RemoveVehicleById(Vehicle vehicleToPull)
+        {
+            foreach (Vehicle vehicle in _vehicle)
+            {
+                if (vehicleToPull.IdNumber == vehicle.IdNumber)
+                {
+                    RemoveVehicle(vehicle);
+                    break;
+                }
+            }
+        }
     }
 }
