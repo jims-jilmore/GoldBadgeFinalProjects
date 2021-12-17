@@ -22,6 +22,16 @@ namespace ChallengeTwoGreenPlan.REPO
             _vehicle.Add(vehicle);
             return true;
         }
+        public bool WasVehicleRemoved(Vehicle vehicleThatWasRemoved, int idOfVehicleToRemove)
+        {
+            vehicleThatWasRemoved = RemoveVehicle(idOfVehicleToRemove);
+
+            if (vehicleThatWasRemoved is null)
+            {
+                return true;
+            }
+            return false;
+        }
         public List<Vehicle> ViewAllVehicles()
         {
             return _vehicle;
@@ -37,12 +47,6 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
-
-        //Compare Vehicle(s)?
-        /*public Vehicle UpdateVehicleInfo(Vehicle vehicleToUpdate)
-        {
-            
-        }*/
         public Vehicle RemoveVehicle(int vehicleId)
         {
             foreach (var vehicle in _vehicle)
@@ -55,16 +59,21 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
-        public void RemoveVehicleById(Vehicle vehicleToPull)
+        public void RemoveVehicleById(Vehicle vehicleToPull, int vehicleIdToPull)
         {
             foreach (Vehicle vehicle in _vehicle)
             {
-                if (vehicleToPull.IdNumber == vehicle.IdNumber)
+                if (vehicle.IdNumber == vehicleIdToPull)
                 {
-                    RemoveVehicle(vehicle);
+                    RemoveVehicle(vehicle.IdNumber);
                     break;
                 }
             }
+        }
+        public int GetListLength()
+        {
+            int listLength = _vehicle.Count();
+            return listLength;  
         }
     }
 }

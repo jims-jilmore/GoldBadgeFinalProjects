@@ -96,7 +96,8 @@ namespace ChallengeTwoGreenPlan.UI
             switch (userInput)
             {
                 case "1":
-                    ListFullVehicleInventory();
+                    // Convert our userInput to a vehicle object somehow
+                    DisplayVehicleInventory();
                     break;
                 case "2":
                     ListVehicleByType();
@@ -112,35 +113,50 @@ namespace ChallengeTwoGreenPlan.UI
                     break;
             }
         }
-        private void DisplayVehicleInformation(Vehicle display)
+        private void DisplayVehicleInformation(Vehicle vehicle)
         {
+            List<Vehicle> vehiclesToList = _vehicle.ViewAllVehicles();
             Console.Clear();
-            Console.WriteLine(
-                $"******************\n" +
-                $"{display.Year} {display.Make} {display.Model}\n" +
-                $"Estimated {display.HighwayMPG} MPG Highway |\n" +
-                $"Estimated {display.CityMPG} MPG City |\n" +
-                $"Starting at {display.Price} MSRP\n");
-            if (display.HasIncentive == true)
+            foreach (var vehicleToList in vehiclesToList)
             {
-                IncentiveOffer();
-            }
-            else
-            {
-            Console.WriteLine(
-                    $"******************\n" +
-                    $"Press any key to continue");
-            Console.ReadKey();
+                Console.WriteLine(
+               $"******************\n" +
+               $"{vehicleToList.Year} {vehicleToList.Make} {vehicleToList.Model}\n" +
+               $"Estimated {vehicleToList.HighwayMPG} MPG Highway |\n" +
+               $"Estimated {vehicleToList.CityMPG} MPG City |\n" +
+               $"Starting at {vehicleToList.Price} MSRP\n");
+
+                if (vehicleToList.HasIncentive == true)
+                {
+                    IncentiveOffer();
+                }
+                else
+                {
+                    Console.WriteLine(
+                            $"******************\n" +
+                            $"Press any key to continue");
+                    Console.ReadKey();
+                }
             }
         }
-        private List<Vehicle> ListFullVehicleInventory()
+        private List<Vehicle> DisplayVehicleInventory(Vehicle vehicle)
         {
-            List<Vehicle> vehicles = _vehicle.ViewAllVehicles();
-
+            int vehicleListLength = _vehicle.GetListLength();
+            int vehicleListCount = 0;
+            while (vehicleListLength > vehicleListCount)
+            {
+                List<Vehicle> vehiclesToDisplay = _vehicle.ViewAllVehicles();
+                foreach (var item in vehiclesToDisplay)
+                {
+                    DisplayVehicleInformation(item);
+                }
+            }
+            return null;
+            
         }
         private void SearchVehicleById()
         {
-            
+            throw new NotImplementedException();
         }
         private void ListVehicleByType()
         {
@@ -177,7 +193,8 @@ namespace ChallengeTwoGreenPlan.UI
                     RemoveMultipleVehicles();
                     break;
                 case "3":
-                    ListFullVehicleInventory();
+                    // Convert our userInput to a vehicle object somehow
+                    DisplayVehicleInventory();
                     break;
                 case "4":
                     MainMenu();
@@ -195,14 +212,18 @@ namespace ChallengeTwoGreenPlan.UI
             Vehicle vehicleToRemove = new Vehicle();
             if (vehicleToRemove.IdNumber == idInput)
             {
-                _vehicle.RemoveVehicle(vehicleToRemove);
+                _vehicle.RemoveVehicle(idInput);
                 if (vehicleToRemove is null)
                 {
                     Console.Clear();
                     Console.WriteLine($"{vehicleToRemove.Model} was not removed from the inventory");
                 }
-                else if (_vehicle.Contains(vehicleToRemove))
+                else if (_vehicle.WasVehicleRemoved(vehicleToRemove, idInput)) 
                 {
+                    Console.Clear();
+                    Console.WriteLine("did this work");
+                    Console.ReadKey();
+                }
                 Console.Clear();
                     Console.WriteLine($"{vehicleToRemove.Model} was removed from the inventory.\n" +
                         $"--------------------------------------------\n" +
@@ -210,19 +231,7 @@ namespace ChallengeTwoGreenPlan.UI
 
                     Console.ReadKey();
                     RemoveVehicleFromInventory();
-                }
-                else
-                {
-                    Console.WriteLine("How did you break it this bad to get here?");
-                    Console.ReadKey();
-                }
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Fission Mailed | Press any key to return to the Remove Vehicle Menu");
-                Console.ReadKey();
-                RemoveVehicleFromInventory();
+               
             }
         }
         private void RemoveMultipleVehicles()
