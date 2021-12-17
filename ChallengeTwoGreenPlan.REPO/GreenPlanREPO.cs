@@ -47,6 +47,19 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
+        public List<Vehicle> ViewVehicleByType(VehicleType vehicleTypeToView)
+        {
+            foreach (var vehicle in _vehicle)
+            {
+                if (vehicleTypeToView == vehicle.VehicleType)
+                {
+                    List<Vehicle> listVehicleByType = new List<Vehicle>();
+                    return listVehicleByType;
+                }
+            }
+            return null;
+        }
+       
         public Vehicle RemoveVehicle(int vehicleId)
         {
             foreach (var vehicle in _vehicle)

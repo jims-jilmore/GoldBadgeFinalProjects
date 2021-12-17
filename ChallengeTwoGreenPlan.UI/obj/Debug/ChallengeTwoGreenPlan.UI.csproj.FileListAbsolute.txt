@@ -10,3 +10,15 @@ C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.POCO.dll
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.POCO.pdb
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.csproj.CopyComplete
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.csproj.AssemblyReference.cache
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.exe
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.UI.exe.config
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.UI.exe
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.UI.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.POCO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.REPO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.POCO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\bin\Debug\ChallengeTwoGreenPlan.REPO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.csproj.CopyComplete

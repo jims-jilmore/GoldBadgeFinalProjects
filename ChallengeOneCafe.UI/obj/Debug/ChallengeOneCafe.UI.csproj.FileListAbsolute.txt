@@ -9,3 +9,15 @@ C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\obj\
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.pdb
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.REPO.dll
 C:\ElevenFifty\GoldBadge\GoldBadgeFinal\FinalTest\Clone\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.REPO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.UI.exe.config
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.UI.exe
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.UI.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.POCO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.REPO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.POCO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\bin\Debug\ChallengeOneCafe.REPO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.csproj.AssemblyReference.cache
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.csproj.CopyComplete
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.exe
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.UI\obj\Debug\ChallengeOneCafe.UI.pdb

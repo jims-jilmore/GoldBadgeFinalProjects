@@ -26,7 +26,7 @@ namespace ChallengeTwoGreenPlan.UI
         }
         private void StopApplication()
         {
-            _isAppRunning = false;
+            _isAppRunning = false; //Longer than one line probably doesn't need a method
         }
         private void Seed()
         {
@@ -89,14 +89,13 @@ namespace ChallengeTwoGreenPlan.UI
                 "Select An Option:\n" +
                 "-----------------\n" +
                 "1 ) View Full Vehicle Inventory\n" +
-                "2 ) View Vehicle Inventory by Type\n" +
+                "2 ) View Vehicle Inventory by Type\n" + 
                 "3 ) Search Vehicle Inventory for Specific Vehicle\n" +
                 "4 ) Return to Main Menu");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
-                    // Convert our userInput to a vehicle object somehow
                     DisplayVehicleInventory();
                     break;
                 case "2":
@@ -139,37 +138,76 @@ namespace ChallengeTwoGreenPlan.UI
                 }
             }
         }
-        private List<Vehicle> DisplayVehicleInventory(Vehicle vehicle)
+        public void DisplayVehicleInventory()
         {
-            int vehicleListLength = _vehicle.GetListLength();
-            int vehicleListCount = 0;
-            while (vehicleListLength > vehicleListCount)
+            List<Vehicle> VehicleInventory = _vehicle.ViewAllVehicles();
+            Console.Clear();
+            Console.WriteLine(
+                    "|||||Vehicle Inventory|||||\n" +
+                    "***************************");
+            foreach (var vehicle in VehicleInventory)
             {
-                List<Vehicle> vehiclesToDisplay = _vehicle.ViewAllVehicles();
-                foreach (var item in vehiclesToDisplay)
-                {
-                    DisplayVehicleInformation(item);
-                }
+                Console.WriteLine($"{vehicle.IdNumber} | {vehicle.Year} {vehicle.Make} {vehicle.Model}");
             }
-            return null;
-            
+            Console.WriteLine("TestTestTest");
+            Console.ReadLine();
         }
         private void SearchVehicleById()
         {
             throw new NotImplementedException();
-        }
+        } // Not Built: Not req'd
         private void ListVehicleByType()
+        {
+            Console.Clear();
+            Console.WriteLine(
+                "Select An Option\n" +
+                "****************\n" +
+                "1) Gas\n" +
+                "2) Electric\n" +
+                "3) Hybrid\n" +
+                "4) Return To Main Menu\n" +
+                "****************");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    ListGasVehicles();
+                    break;  
+                case "2":
+                    ListElectricVehicles();
+                    break;
+                case "3":
+                    ListHybridVehicles();
+                    break;
+                case "4":
+                    MainMenu();
+                    break;
+                default:
+                    ErrorMessage();
+                    break;
+            }
+        }
+
+        private void ListGasVehicles()
         {
             throw new NotImplementedException();
         }
+        private void ListElectricVehicles()
+        {
+            throw new NotImplementedException();
+        } // Not Built
+        private void ListHybridVehicles()
+        {
+            throw new NotImplementedException();
+        } // Not Built
         private void AddVehicleToInventory()
         {
             throw new NotImplementedException();
-        }
+        } // Not Built
         private void UpdateVehicleInformation()
         {
             throw new NotImplementedException();
-        }
+        } // Not Built
         private void RemoveVehicleFromInventory()
         {
             Console.Clear();
@@ -193,7 +231,6 @@ namespace ChallengeTwoGreenPlan.UI
                     RemoveMultipleVehicles();
                     break;
                 case "3":
-                    // Convert our userInput to a vehicle object somehow
                     DisplayVehicleInventory();
                     break;
                 case "4":
@@ -237,7 +274,7 @@ namespace ChallengeTwoGreenPlan.UI
         private void RemoveMultipleVehicles()
         {
             throw new NotImplementedException();
-        }
+        } // Not Built
         private void IncentiveOffer()
         {
             Console.WriteLine(
@@ -255,10 +292,5 @@ namespace ChallengeTwoGreenPlan.UI
             Console.ReadKey();
             Console.Clear();
         }
-
-
-
-
-
     }
 }
