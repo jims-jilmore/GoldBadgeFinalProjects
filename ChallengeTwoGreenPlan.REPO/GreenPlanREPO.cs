@@ -12,16 +12,20 @@ namespace ChallengeTwoGreenPlan.REPO
         private readonly List<Vehicle> _vehicle = new List<Vehicle>();
         private int generateVehicleId = 0; 
 
-        public bool CreateVehicle(Vehicle vehicle)
+        // Project Requirements: Full CRUD and List each vehicle type 
+
+        public bool CreateVehicle(Vehicle vehicleToCreate)
         {
-            if (vehicle is null)
+            if (vehicleToCreate is null)
             {
                 return false;
             }
             generateVehicleId++;
-            _vehicle.Add(vehicle);
+            vehicleToCreate.IdNumber = generateVehicleId;
+            _vehicle.Add(vehicleToCreate);
             return true;
         }
+        
         public bool WasVehicleRemoved(Vehicle vehicleThatWasRemoved, int idOfVehicleToRemove)
         {
             vehicleThatWasRemoved = RemoveVehicle(idOfVehicleToRemove);
@@ -32,6 +36,7 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return false;
         }
+        
         public List<Vehicle> ViewAllVehicles()
         {
             return _vehicle;
@@ -47,7 +52,8 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
-        public List<Vehicle> ViewVehicleByType(VehicleType vehicleTypeToView)
+        /*
+        public List<Vehicle> ViewVehicleByType(VehicleType vehicleTypeToView) // Test This Method 
         {
             foreach (var vehicle in _vehicle)
             {
@@ -57,9 +63,9 @@ namespace ChallengeTwoGreenPlan.REPO
                     return listVehicleByType;
                 }
             }
-            return null;
+            return null; 
         }
-       
+        */
         public Vehicle RemoveVehicle(int vehicleId)
         {
             foreach (var vehicle in _vehicle)
@@ -72,17 +78,19 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
+        /*
         public void RemoveVehicleById(Vehicle vehicleToPull, int vehicleIdToPull)
         {
-            foreach (Vehicle vehicle in _vehicle)
+            foreach (var vehicle in _vehicle)
             {
                 if (vehicle.IdNumber == vehicleIdToPull)
                 {
-                    RemoveVehicle(vehicle.IdNumber);
+                    RemoveVehicle(vehicleIdToPull);
                     break;
                 }
             }
-        }
+        } // Might be an unneccessart method
+        */
         public int GetListLength()
         {
             int listLength = _vehicle.Count();

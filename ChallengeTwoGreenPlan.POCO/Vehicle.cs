@@ -15,9 +15,8 @@ namespace ChallengeTwoGreenPlan.POCO
 
      public class Vehicle
     {
-        // Potential Properties: Make, Model, Year, VehiclePrice, HasIncentive, FuelCost(OperatingCost?)
         public VehicleType VehicleType { get; set; }
-        public int Year { get; set; }
+        public string Year { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
         public decimal Price { get; set; }
@@ -25,10 +24,8 @@ namespace ChallengeTwoGreenPlan.POCO
         public int CityMPG { get; set; }
         public int HighwayMPG { get; set; }
         public int IdNumber { get; set; }
-
-
         public Vehicle() { }
-        public Vehicle(VehicleType vehicleType, int year, string make, string model, decimal price, bool hasIncentive, int cityMPG, int highwayMPG, int idNumber)
+        public Vehicle(VehicleType vehicleType, string year, string make, string model, decimal price, bool hasIncentive, int cityMPG, int highwayMPG, int idNumber)
         {
             VehicleType = vehicleType;
             Year = year;
@@ -40,8 +37,7 @@ namespace ChallengeTwoGreenPlan.POCO
             HighwayMPG = highwayMPG;
             IdNumber = idNumber;
         }
-
-        public Vehicle(VehicleType vehicleType, int year, string make, string model, bool hasIncentive, int cityMPG, int highwayMPG)
+        public Vehicle(VehicleType vehicleType, string year, string make, string model, bool hasIncentive, int cityMPG, int highwayMPG)
         {
             VehicleType = vehicleType;
             Year = year;
@@ -51,8 +47,7 @@ namespace ChallengeTwoGreenPlan.POCO
             CityMPG = cityMPG;
             HighwayMPG = highwayMPG;
         }
-
-        public Vehicle(VehicleType vehicleType, int year, string make, string model, bool hasIncentive)
+        public Vehicle(VehicleType vehicleType, string year, string make, string model, bool hasIncentive)
         {
             VehicleType = vehicleType;
             Year = year;
@@ -60,5 +55,12 @@ namespace ChallengeTwoGreenPlan.POCO
             Model = model;
             HasIncentive = hasIncentive;
         }
+        public Vehicle(string year, string make, string model)
+        {
+            Year = year;
+            Make = make;
+            Model = model;
+        }
+
     }
 }

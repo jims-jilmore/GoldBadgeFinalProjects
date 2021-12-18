@@ -10,3 +10,9 @@ C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.P
 C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.csproj.CoreCompileInputs.cache
 C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.dll
 C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\bin\Debug\ChallengeTwoGreenPlan.POCO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\bin\Debug\ChallengeTwoGreenPlan.POCO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.csproj.AssemblyReference.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.csproj.CoreCompileInputs.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.POCO\obj\Debug\ChallengeTwoGreenPlan.POCO.pdb

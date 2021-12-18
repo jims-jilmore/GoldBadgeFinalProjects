@@ -21,7 +21,6 @@ namespace ChallengeOneCafe.POCO
             MealPrice = mealPrice;
             IsAvailable = isAvailable;
         }
-        //Use function to assign meal number
         public MenuItem(string mealName, string mealDescription, string mainIngredient, List<string> sideIngredients, decimal mealPrice, bool isAvailable)
         {
             MealName = mealName;
@@ -31,7 +30,6 @@ namespace ChallengeOneCafe.POCO
             MealPrice = mealPrice;
             IsAvailable = isAvailable;
         }
-        //Use function to assign meal number and leave the mealPrice null? (blank to where price could be added later)
         public MenuItem(string mealName, string mealDescription, string mainIngredient, List<string> sideIngredients, bool isAvailable)
         {
             MealName = mealName;
@@ -40,7 +38,6 @@ namespace ChallengeOneCafe.POCO
             SideIngredients = sideIngredients;
             IsAvailable = isAvailable;
         }
-        //Use function to assign meal number for an item coming soon
         public MenuItem(string mealName, string mealDescription, string mainIngredient, bool isAvailable)
         {
             MealName = mealName;
@@ -48,7 +45,6 @@ namespace ChallengeOneCafe.POCO
             MainIngredient = mainIngredient;
             IsAvailable = isAvailable;
         }
-        //Use function to assign meal number and only enter the name (Could be for like an idea for a menu item in early concept)
         public MenuItem(string mealName, bool isAvailable)
         {
             MealName = mealName;
