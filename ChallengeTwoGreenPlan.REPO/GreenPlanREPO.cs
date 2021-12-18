@@ -12,8 +12,6 @@ namespace ChallengeTwoGreenPlan.REPO
         private readonly List<Vehicle> _vehicle = new List<Vehicle>();
         private int generateVehicleId = 0; 
 
-        // Project Requirements: Full CRUD and List each vehicle type 
-
         public bool CreateVehicle(Vehicle vehicleToCreate)
         {
             if (vehicleToCreate is null)
@@ -25,22 +23,47 @@ namespace ChallengeTwoGreenPlan.REPO
             _vehicle.Add(vehicleToCreate);
             return true;
         }
-        
-        public bool WasVehicleRemoved(Vehicle vehicleThatWasRemoved, int idOfVehicleToRemove)
-        {
-            vehicleThatWasRemoved = RemoveVehicle(idOfVehicleToRemove);
-
-            if (vehicleThatWasRemoved is null)
-            {
-                return true;
-            }
-            return false;
-        }
-        
         public List<Vehicle> ViewAllVehicles()
         {
             return _vehicle;
         }
+        public List<Vehicle> ViewGasVehicles()
+        {
+            foreach (var vehicle in _vehicle)
+            {
+                if (vehicle.VehicleType == VehicleType.Gas)
+                {
+                    List<Vehicle> gasVehicles = new List<Vehicle>();
+                    return gasVehicles;
+                }
+            }
+            return null;
+        }
+        public List<Vehicle> ViewElectricVehicles()
+        {
+            foreach (var vehicle in _vehicle)
+            {
+                if (vehicle.VehicleType == VehicleType.Electric)
+                {
+                    List<Vehicle> electricVehicles = new List<Vehicle>();
+                    return electricVehicles;
+                }
+            }
+            return null;
+        }
+        public List<Vehicle> ViewHybridVehicles()
+        {
+            foreach (var vehicle in _vehicle)
+            {
+                if (vehicle.VehicleType == VehicleType.Hybrid)
+                {
+                    List<Vehicle> hybridVehicles = new List<Vehicle>();
+                    return hybridVehicles;
+                }
+            }
+            return null;
+        }
+        //Method For Vehicle Comparison?
         public Vehicle ViewVehicleById(int vehicleId)
         {
            foreach (var vehicle in _vehicle)
@@ -52,21 +75,7 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
-        /*
-        public List<Vehicle> ViewVehicleByType(VehicleType vehicleTypeToView) // Test This Method 
-        {
-            foreach (var vehicle in _vehicle)
-            {
-                if (vehicleTypeToView == vehicle.VehicleType)
-                {
-                    List<Vehicle> listVehicleByType = new List<Vehicle>();
-                    return listVehicleByType;
-                }
-            }
-            return null; 
-        }
-        */
-        public Vehicle RemoveVehicle(int vehicleId)
+        public Vehicle RemoveVehicleById(int vehicleId)
         {
             foreach (var vehicle in _vehicle)
             {
@@ -78,19 +87,16 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
-        /*
-        public void RemoveVehicleById(Vehicle vehicleToPull, int vehicleIdToPull)
+        public bool RemoveVehicle(Vehicle vehicle)
         {
-            foreach (var vehicle in _vehicle)
+            if (vehicle is null)
             {
-                if (vehicle.IdNumber == vehicleIdToPull)
-                {
-                    RemoveVehicle(vehicleIdToPull);
-                    break;
-                }
+                return false;
             }
-        } // Might be an unneccessart method
-        */
+            _vehicle.Remove(vehicle);
+            return true;
+        }
+        //Method For Updating Vehicle Info
         public int GetListLength()
         {
             int listLength = _vehicle.Count();
