@@ -15,15 +15,18 @@ namespace ChallengeTwoGreenPlan.UI
         private bool _isAppRunning = true;
         public void Seed()
         {
-            Vehicle vehicleOne = new Vehicle(VehicleType.Gas, "2022", "Kia", "Telluride", 50.0000m, true, 25, 32, 1);
-            Vehicle vehicleTwo = new Vehicle("2022", "Tesla", "Model X");
-            Vehicle vehicleThree = new Vehicle("2022", "Ford", "F-150 Raptor");
-            Vehicle vehicleFour = new Vehicle(VehicleType.Gas, "1969", "Ford", "Mustang", 10000000m, false, 1, 2, 4);
+            Vehicle vehicleOne = new Vehicle("Gas", "2022", "Kia", "Telluride", 50.0000m, true, 25, 32, 1);
+            Vehicle vehicleTwo = new Vehicle("Electric" ,"2022", "Tesla", "Model X", true);
+            Vehicle vehicleThree = new Vehicle("Gas", "2022", "Ford", "F-150 Raptor", false); 
+            Vehicle vehicleFour = new Vehicle("Gas", "1969", "Ford", "Mustang", 10000000m, false, 1, 2, 4);
+            Vehicle vehicleFive = new Vehicle("Electric", "2017", "Chevy", "Volt", true);
+            Vehicle vehicleSix = new Vehicle("Hybrid", "2019", "Toyota", "Prius", true);
             _vehicle.CreateVehicle(vehicleOne);
             _vehicle.CreateVehicle(vehicleTwo);
             _vehicle.CreateVehicle(vehicleThree);
             _vehicle.CreateVehicle(vehicleFour);
-
+            _vehicle.CreateVehicle(vehicleFive);
+            _vehicle.CreateVehicle(vehicleSix);
         }
         public void Run()
         {
@@ -72,7 +75,7 @@ namespace ChallengeTwoGreenPlan.UI
                     AddVehicleToInventory();
                     break;
                 case "3":
-                    UpdateVehicleInformation();
+                    UpdateVehicleInfoMenu();
                     break;
                 case "4":
                     RemoveVehicleMenu();
@@ -172,7 +175,6 @@ namespace ChallengeTwoGreenPlan.UI
             Console.WriteLine("********************\n" +
                 "Press Any Key To Continue");
             Console.ReadKey();
-            //ViewVehicleInventoryMenu();
         }
         private void ListVehicleByType()
         {
@@ -204,7 +206,7 @@ namespace ChallengeTwoGreenPlan.UI
                     ErrorMessage();
                     break;
             }
-        } // Needs to be built
+        } 
         private void ListGasVehicles()
         {
             Console.Clear();
@@ -221,7 +223,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        } 
+        }  // Base Function Works. Not Listing all vehicles though
         private void ListElectricVehicles()
         {
             Console.Clear();
@@ -238,7 +240,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        }
+        } // Base Function Works. 
         private void ListHybridVehicles()
         {
             Console.Clear();
@@ -255,7 +257,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        } 
+        }  // Base Function Works.
         private void AddVehicleToInventory()
         {
             Console.Clear();
@@ -293,13 +295,13 @@ namespace ChallengeTwoGreenPlan.UI
             switch (userInput)
             {
                 case "1":
-                    vehicleToAdd.VehicleType = VehicleType.Gas;
+                    vehicleToAdd.VehicleType = "Gas";
                     break;
                 case "2":
-                    vehicleToAdd.VehicleType = VehicleType.Electric;
+                    vehicleToAdd.VehicleType = "Electric";
                     break;
                 case "3":
-                    vehicleToAdd.VehicleType = VehicleType.Hybrid;
+                    vehicleToAdd.VehicleType = "Hybrid";
                     break;
                 default:
                     ErrorMessage();
@@ -379,10 +381,130 @@ namespace ChallengeTwoGreenPlan.UI
                 MainMenu();
             }
         } 
-        private void UpdateVehicleInformation()
+        private void UpdateVehicleInfoMenu()
         {
-            throw new NotImplementedException();
-        } // Not Built: REQ'd
+            Console.Clear();
+            Console.WriteLine(
+                "|||||Update Vehicle Info Menu|||||\n" +
+                "**********************************\n" +
+                "!) Update Vehicle\n" +
+                "2) Return To Main Menu");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    UpdateVehicle();
+                    break;
+                case 2:
+                    MainMenu();
+                    break;
+                default:
+                    ErrorMessage();
+                    break;
+            }
+        }
+        private void UpdateVehicle()
+        {
+            DisplayVehicleInventory();
+            Console.WriteLine("Enter ID Of Vehicle To Update");
+            int idToUpdate = int.Parse(Console.ReadLine());
+            Vehicle vehicleToUpdate = new Vehicle();
+            Console.Clear();
+            Console.WriteLine(
+                "Select Vehicle Type:\n" +
+                "1) Gas\n" +
+                "2) Electric\n" +
+                "3) Hybrid");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    vehicleToUpdate.VehicleType = "Gas";
+                    break;
+                case "2":
+                    vehicleToUpdate.VehicleType = "Electric";
+                    break;
+                case "3":
+                    vehicleToUpdate.VehicleType = "Hybrid";
+                    break;
+                default:
+                    ErrorMessage();
+                    break;
+            }
+            Console.Clear();
+            Console.WriteLine("Enter The Year Of The Vehicle");
+            vehicleToUpdate.Year = Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Enter The Make Of The Vehicle");
+            vehicleToUpdate.Make = Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Enter The Model Of The Vehicle");
+            vehicleToUpdate.Model = Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Enter The Price Of The Vehicle");
+            vehicleToUpdate.Price = int.Parse(Console.ReadLine());
+
+            Console.Clear();
+            Console.WriteLine("Does The Vehicle Have An Incentive (y/n)");
+            string incentiveInput = Console.ReadLine().ToLower();
+            switch (incentiveInput)
+            {
+                case "y":
+                    vehicleToUpdate.HasIncentive = true;
+                    break;
+                case "n":
+                    vehicleToUpdate.HasIncentive = false;
+                    break;
+                default:
+                    ErrorMessage();
+                    break;
+            }
+
+            Console.Clear();
+            Console.WriteLine("Enter The Vehicles Estimated City MPG");
+            vehicleToUpdate.CityMPG = int.Parse(Console.ReadLine());
+
+            Console.Clear();
+            Console.WriteLine("Enter The Vehicle's Estimated Highway MPG");
+            vehicleToUpdate.HighwayMPG = int.Parse(Console.ReadLine());
+
+            Console.Clear();
+            if (_vehicle.UpdateVehicle(idToUpdate, vehicleToUpdate) == true)
+            {
+                Console.WriteLine(
+                    $"{vehicleToUpdate.Make} {vehicleToUpdate.Model}\n" +
+                    $"Was Successfully Added To The Inventory\n" +
+                    $"********************\n" +
+                    $"Enter 1 To View Vehicle | Enter 2 To Return To Main Menu");
+                string returnInput = Console.ReadLine();
+                switch (returnInput)
+                {
+                    case "1":
+                        DisplayVehicleDetail(vehicleToUpdate);
+                        break;
+                    case "2":
+                        MainMenu();
+                        break;
+                    default:
+                        ErrorMessage();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine(
+                    $"ERROR\n" +
+                    $"{vehicleToUpdate.Make} {vehicleToUpdate.Model}\n" +
+                    $"Was Not Added To The Inventory\n" +
+                    $"********************\n" +
+                    $"Press Any Key To Return To Main Menu");
+                Console.ReadKey();
+                MainMenu();
+            }
+        }
         private void RemoveVehicleMenu()
         {
             Console.Clear();

@@ -31,9 +31,10 @@ namespace ChallengeTwoGreenPlan.REPO
         {
             foreach (var vehicle in _vehicle)
             {
-                if (vehicle.VehicleType == VehicleType.Gas)
+                if (vehicle.VehicleType == "Gas")
                 {
                     List<Vehicle> gasVehicles = new List<Vehicle>();
+                    gasVehicles.Add(vehicle);
                     return gasVehicles;
                 }
             }
@@ -43,10 +44,11 @@ namespace ChallengeTwoGreenPlan.REPO
         {
             foreach (var vehicle in _vehicle)
             {
-                if (vehicle.VehicleType == VehicleType.Electric)
+                if (vehicle.VehicleType == "Electric")
                 {
-                    List<Vehicle> electricVehicles = new List<Vehicle>();
-                    return electricVehicles;
+                    List<Vehicle> eVehicles = new List<Vehicle>();
+                    eVehicles.Add(vehicle);
+                    return eVehicles;
                 }
             }
             return null;
@@ -55,15 +57,15 @@ namespace ChallengeTwoGreenPlan.REPO
         {
             foreach (var vehicle in _vehicle)
             {
-                if (vehicle.VehicleType == VehicleType.Hybrid)
+                if (vehicle.VehicleType == "Hybrid")
                 {
                     List<Vehicle> hybridVehicles = new List<Vehicle>();
+                    hybridVehicles.Add(vehicle);
                     return hybridVehicles;
                 }
             }
             return null;
         }
-        //Method For Vehicle Comparison?
         public Vehicle ViewVehicleById(int vehicleId)
         {
            foreach (var vehicle in _vehicle)
@@ -96,11 +98,31 @@ namespace ChallengeTwoGreenPlan.REPO
             _vehicle.Remove(vehicle);
             return true;
         }
-        //Method For Updating Vehicle Info
         public int GetListLength()
         {
             int listLength = _vehicle.Count();
             return listLength;  
+        }
+        public bool UpdateVehicle(int idToUpdate, Vehicle oldVehicle)
+        {
+            Vehicle vehicleToUpdate = ViewVehicleById(idToUpdate);
+            if (oldVehicle != null)
+            {
+                oldVehicle.IdNumber = vehicleToUpdate.IdNumber;
+                oldVehicle.Year = vehicleToUpdate.Year;
+                oldVehicle.Make = vehicleToUpdate.Make;
+                oldVehicle.Model = vehicleToUpdate.Model;
+                oldVehicle.Price = vehicleToUpdate.Price;
+                oldVehicle.HasIncentive = vehicleToUpdate.HasIncentive;
+                oldVehicle.CityMPG = vehicleToUpdate.CityMPG;
+                oldVehicle.HighwayMPG = vehicleToUpdate.HighwayMPG;
+
+                return true;
+            }
+            else
+            {
+            return false;
+            }
         }
     }
 }
