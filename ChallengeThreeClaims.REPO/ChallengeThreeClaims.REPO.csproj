@@ -44,5 +44,11 @@
     <Compile Include="ClaimREPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeThreeClaims.POCO\ChallengeThreeClaims.POCO.csproj">
+      <Project>{1891E92C-2826-4948-83A8-9CE47DEF5F12}</Project>
+      <Name>ChallengeThreeClaims.POCO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

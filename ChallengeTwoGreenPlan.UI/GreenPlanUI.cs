@@ -210,11 +210,11 @@ namespace ChallengeTwoGreenPlan.UI
         private void ListGasVehicles()
         {
             Console.Clear();
-            List<Vehicle> gasVehicles = _vehicle.ViewGasVehicles();
+            List<Vehicle> gasList = _vehicle.ViewGasVehicles();
             Console.WriteLine(
                 "|||||Gas Vehicles|||||\n" +
                 "**********************");
-            foreach (var vehicle in gasVehicles)
+            foreach (var vehicle in gasList)
             {
                 Console.WriteLine($"ID: {vehicle.IdNumber} | {vehicle.Year} {vehicle.Make} {vehicle.Model}");
             }
@@ -223,7 +223,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        }  // Base Function Works. Not Listing all vehicles though
+        } 
         private void ListElectricVehicles()
         {
             Console.Clear();
@@ -240,7 +240,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        } // Base Function Works. 
+        } 
         private void ListHybridVehicles()
         {
             Console.Clear();
@@ -257,7 +257,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        }  // Base Function Works.
+        }  // List function is closer now. Still not 100% right
         private void AddVehicleToInventory()
         {
             Console.Clear();
@@ -281,7 +281,7 @@ namespace ChallengeTwoGreenPlan.UI
                     MainMenu();
                     break;
             }
-        } // Add Multiple Not Build | Not REQ'd
+        } 
         private void AddVehicle()
         {
             Vehicle vehicleToAdd = new Vehicle();

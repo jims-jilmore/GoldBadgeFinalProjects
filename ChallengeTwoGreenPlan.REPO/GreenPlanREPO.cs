@@ -33,9 +33,8 @@ namespace ChallengeTwoGreenPlan.REPO
             {
                 if (vehicle.VehicleType == "Gas")
                 {
-                    List<Vehicle> gasVehicles = new List<Vehicle>();
-                    gasVehicles.Add(vehicle);
-                    return gasVehicles;
+                    _vehicle.Add(vehicle);
+                    return _vehicle; ;
                 }
             }
             return null;
@@ -46,9 +45,8 @@ namespace ChallengeTwoGreenPlan.REPO
             {
                 if (vehicle.VehicleType == "Electric")
                 {
-                    List<Vehicle> eVehicles = new List<Vehicle>();
-                    eVehicles.Add(vehicle);
-                    return eVehicles;
+                    _vehicle.Add(vehicle);
+                    return _vehicle;
                 }
             }
             return null;
@@ -59,9 +57,9 @@ namespace ChallengeTwoGreenPlan.REPO
             {
                 if (vehicle.VehicleType == "Hybrid")
                 {
-                    List<Vehicle> hybridVehicles = new List<Vehicle>();
-                    hybridVehicles.Add(vehicle);
-                    return hybridVehicles;
+                    
+                    _vehicle.Add(vehicle);
+                    return _vehicle;
                 }
             }
             return null;

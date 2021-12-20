@@ -1,0 +1,6 @@
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.POCO\bin\Debug\ChallengeThreeClaims.POCO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.POCO\bin\Debug\ChallengeThreeClaims.POCO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.POCO\obj\Debug\ChallengeThreeClaims.POCO.csproj.AssemblyReference.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.POCO\obj\Debug\ChallengeThreeClaims.POCO.csproj.CoreCompileInputs.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.POCO\obj\Debug\ChallengeThreeClaims.POCO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.POCO\obj\Debug\ChallengeThreeClaims.POCO.pdb

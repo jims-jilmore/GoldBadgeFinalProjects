@@ -1,0 +1,11 @@
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.UI.exe.config
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.UI.exe
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.UI.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.POCO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.REPO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.POCO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\bin\Debug\ChallengeThreeClaims.REPO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\obj\Debug\ChallengeThreeClaims.UI.csproj.AssemblyReference.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\obj\Debug\ChallengeThreeClaims.UI.csproj.CoreCompileInputs.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\obj\Debug\ChallengeThreeClaims.UI.exe
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.UI\obj\Debug\ChallengeThreeClaims.UI.pdb
