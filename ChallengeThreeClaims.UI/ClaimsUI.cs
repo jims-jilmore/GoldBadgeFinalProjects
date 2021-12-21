@@ -12,7 +12,6 @@ namespace ChallengeThreeClaims.UI
     {
         private readonly ClaimREPO _claimRepo = new ClaimREPO();
         private readonly Queue<Claim> _claimQueue = new Queue<Claim>();
-        private readonly List<Claim> _claimList = new List<Claim>();
         private bool isAppRunning = true;
 
         public void Run()
@@ -249,16 +248,18 @@ namespace ChallengeThreeClaims.UI
         }
         public void RemoveClaim()
         {
-            ShowAllClaims();
-            Console.WriteLine(
-                "************************\n" +
-                "Enter Claim ID To Remove\n" +
-                "************************");
-            int idToRemove = int.Parse(Console.ReadLine());
-            Claim claimToRemove = _claimRepo.RemoveClaim(idToRemove); // here
-            
-
             Console.Clear();
+            Claim claimToRemove = _claimQueue.Peek();
+
+            Console.WriteLine("Do you want to deal with this");
+            //some input 
+
+            //yes 
+            _claimRepo.RemoveClaim();
+
+
+
+
             Console.WriteLine(
                 $"Are you sure you want to remove Claim ID:{claimToRemove.ClaimID}?\n" +
                 $"Enter Y for Yes | Enter N for No");
@@ -291,8 +292,85 @@ namespace ChallengeThreeClaims.UI
                 "************************\n" +
                 "Enter Claim ID To Update\n" +
                 "************************");
-            string userInput = Console.ReadLine();
-            Console.ReadKey();
-        }
+            int idUserInput = int.Parse(Console.ReadLine());
+            Claim oldClaim = _claimRepo.ViewSingleClaim(idUserInput);
+            Claim updatedClaim = new Claim();
+
+            Console.Clear();
+            Console.WriteLine(
+                "Select Claim Type:\n" +
+                "1) Car\n" +
+                "2) Home\n" +
+                "3) Theft\n");
+            int typeInput = int.Parse(Console.ReadLine());
+            if (typeInput == 1)
+            {
+                updatedClaim.ClaimType = TypeOfClaim.Car;
+            }
+            else if (typeInput == 2)
+            {
+                updatedClaim.ClaimType = TypeOfClaim.Home;
+            }
+            else if (typeInput == 3)
+            {
+                updatedClaim.ClaimType = TypeOfClaim.Theft;
+            }
+            else
+            {
+                Error();
+            }
+            Console.Clear();
+            Console.WriteLine(
+                "Enter Brief Description Of The Incident\n" +
+                "***************************************");
+            updatedClaim.Description = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine(
+                "Enter The Amount Of The Claim\n" +
+                "*****************************");
+            updatedClaim.ClaimAmount = Decimal.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(
+                "Enter Date Of Incident\n" +
+                "**********************");
+            updatedClaim.DateOfIncident = DateTime.Parse(Console.ReadLine()); // Need To Test This 
+            Console.Clear();
+            Console.WriteLine(
+                "Enter Date Of Claim\n" +
+                "*******************");
+            updatedClaim.DateOfClaim = DateTime.Parse(Console.ReadLine());
+
+            if (_claimRepo.ValidateClaim(updatedClaim.DateOfIncident, updatedClaim.DateOfClaim) == true)
+            {
+                Console.Clear();
+                Console.WriteLine(
+                    "***********************\n" +
+                    "This Claim Is Valid\n" +
+                    "*******************\n" +
+                    "Press Any Key To Continue");
+                _claimRepo.UpdateClaim(idUserInput, oldClaim);
+                _claimList.Add(updatedClaim);
+                _claimQueue.Enqueue(updatedClaim);
+                ViewClaimQueue();
+            }
+            else if (_claimRepo.ValidateClaim(updatedClaim.DateOfIncident, updatedClaim.DateOfClaim) == false)
+            {
+                Console.Clear();
+                Console.WriteLine(
+                    "*******************\n" +
+                    "This Claim Is Invalid\n" +
+                    "*********************\n" +
+                    "Press Any Key To Continue");
+                _claimRepo.UpdateClaim(idUserInput, oldClaim);
+                _claimList.Add(updatedClaim);
+                _claimQueue.Enqueue(updatedClaim);
+                ViewClaimQueue();
+            }
+            else
+            {
+                Error();
+            }
+        }// delete or comment out
+        
     }
 }

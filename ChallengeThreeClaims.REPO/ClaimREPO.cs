@@ -9,14 +9,9 @@ namespace ChallengeThreeClaims.REPO
 {
     public class ClaimREPO
     {
-        private readonly List<Claim> _claims = new List<Claim>();
         private Queue<Claim> _claimQueue = new Queue<Claim>();
         private int claimId = 0;
 
-        public List<Claim>ViewAllClaims()
-        {
-            return _claims;
-        }
         public Queue<Claim> ShowClaimQueue()
         {
             return _claimQueue;
@@ -29,21 +24,13 @@ namespace ChallengeThreeClaims.REPO
             }
             claimId++;
             claim.ClaimID = claimId;
-            _claims.Add(claim);
             _claimQueue.Enqueue(claim);
             return true;
         }
-        public Claim RemoveClaim(int claimIdToRemove)
+        public bool RemoveClaim()
         {
-            foreach (Claim claim in _claims)
-            {
-                if (claim.ClaimID == claimIdToRemove)
-                {
-                    _claims.Remove(claim);
-                    return claim;
-                }
-            }
-            return null;
+            _claimQueue.Dequeue();
+            return true;
         }
         public bool UpdateClaim(int claimIdToUpdate, Claim oldClaim)
         {
@@ -63,17 +50,6 @@ namespace ChallengeThreeClaims.REPO
             {
                 return false;
             }
-        }
-        public Claim ViewSingleClaim(int claimId)
-        {
-            foreach (var claim in _claims)
-            {
-                if (claim.ClaimID == claimId)
-                {
-                    return claim;
-                }
-            }
-            return null;
         }
         public bool ValidateClaim(DateTime dateOfIncident, DateTime dateOfClaim)
         {
