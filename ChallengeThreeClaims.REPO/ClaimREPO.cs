@@ -24,41 +24,19 @@ namespace ChallengeThreeClaims.REPO
             }
             claimId++;
             claim.ClaimID = claimId;
-            _claimQueue.Enqueue(claim);
             return true;
         }
-        public bool RemoveClaim()
+        
+        public bool ValidateClaim(DateTime dateOfIncident, DateTime dateOfClaim)
         {
-            _claimQueue.Dequeue();
-            return true;
-        }
-        public bool UpdateClaim(int claimIdToUpdate, Claim oldClaim)
-        {
-            Claim claimToUpdate = ViewSingleClaim(claimIdToUpdate);
-            if (oldClaim != null)
-            {
-                claimToUpdate.ClaimID = oldClaim.ClaimID;
-                claimToUpdate.ClaimType = oldClaim.ClaimType;
-                claimToUpdate.Description = oldClaim.Description;
-                claimToUpdate.ClaimAmount = oldClaim.ClaimAmount;
-                claimToUpdate.DateOfIncident = oldClaim.DateOfIncident;
-                claimToUpdate.DateOfClaim = oldClaim.DateOfClaim;
-                claimToUpdate.IsClaimValid = oldClaim.IsClaimValid;
-                return true;
-            }
-            else
+            TimeSpan timeSinceIncident = new TimeSpan();
+            timeSinceIncident = dateOfClaim - dateOfIncident;
+            int interval = timeSinceIncident.Days;
+            if (interval > 30)
             {
                 return false;
             }
-        }
-        public bool ValidateClaim(DateTime dateOfIncident, DateTime dateOfClaim)
-        {
-            TimeSpan durationSinceIncident = dateOfClaim - dateOfIncident;
-            if (durationSinceIncident.Days > 0 && durationSinceIncident.Days <= 30)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
     }
 }

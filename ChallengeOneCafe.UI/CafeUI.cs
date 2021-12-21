@@ -100,7 +100,6 @@ namespace ChallengeOneCafe.UI
                 "****************************\n" +
                 "Press 1 to View a specific dish | Press 2 to return to Main Menu");
             int mealNumberInput = int.Parse(Console.ReadLine());
-            MenuItem menuItem = _menuItem.ViewMenuItem(mealNumberInput); //<<< app worked with this commented out
             switch (mealNumberInput)
             {
                 case 1:
@@ -156,10 +155,10 @@ namespace ChallengeOneCafe.UI
             switch (userInput)
             {
                 case "1":
-                    AddSingleIngredient(newMenuItem);
+                    AddSingleIngredient();
                     break;
                 case "2":
-                    AddMultipleIngredients(newMenuItem);
+                    AddMultipleIngredients();
                     break;
                 default:
                     Console.WriteLine("Please select an option");
@@ -200,14 +199,14 @@ namespace ChallengeOneCafe.UI
                 MainMenu();
             }
         }
-        public void AddMultipleIngredients(MenuItem menuItem)
+        public void AddMultipleIngredients()
         {
             Console.Clear();
             Console.WriteLine("Enter the number of side ingredients for the Meal");
             int userInput = int.Parse(Console.ReadLine());
             while (userInput > 0)
             {
-                AddSingleIngredient(menuItem);
+                AddSingleIngredient();
                 userInput--;
             }
             if (userInput == 0)
@@ -221,20 +220,19 @@ namespace ChallengeOneCafe.UI
                 Console.WriteLine("Error");
                 Console.ReadLine();
             }
-
-
-
         }
-        public void AddSingleIngredient(MenuItem menuItem)
+        public void AddSingleIngredient()
         {
             Console.Clear();
             Console.WriteLine("Enter the name of the Side Ingredient");
-            string input = Console.ReadLine();
-            menuItem.SideIngredients = new List<string>
+            string ingredient = Console.ReadLine();
+            _menuItem.CreateSideItem(ingredient);
+            if (_menuItem.CreateSideItem(ingredient) == true)
             {
-                input
-            };
-            Console.WriteLine($"{input} was added successfully");
+                Console.WriteLine($"{ingredient} was added successfully.\n" +
+                    $"Press Any Key To Continue");
+                Console.ReadKey();
+            }
         }
         public void DeleteMenuItem()
         {
@@ -260,13 +258,17 @@ namespace ChallengeOneCafe.UI
         }
         public void DisplayItemDetail(MenuItem menuItem)
         {
+            List<string> sides = _menuItem.ListAllSides(menuItem);
             Console.Clear();
             Console.WriteLine(
                  $"#{menuItem.MealNumber} {menuItem.MealName} \n" +
                  $"{menuItem.MealDescription} \n" +
-                 $"Main Component: {menuItem.MainIngredient} \n" +
-                 $"Sides: {menuItem.SideIngredients} \n" + //<<<---Not listing correctly. pretty sure i need a loop 
-                 $"Price: ${menuItem.MealPrice}");
+                 $"Main Component: {menuItem.MainIngredient}");
+            foreach (var side in sides)
+            {
+                Console.WriteLine($"Side: {side}");
+            }
+            Console.WriteLine($"Price: ${menuItem.MealPrice}");
             if (menuItem.IsAvailable == true)
             {
                 Console.WriteLine("Available Now!");

@@ -8,9 +8,7 @@ namespace ChallengeOneCafe.POCO
 {
     public class MenuItem
     {
-        //Empty
         public MenuItem() { }
-        //Hard Code Entry
         public MenuItem(int mealNumber, string mealName, string mealDescription, string mainIngredient, List<string> sideIngredients, decimal mealPrice, bool isAvailable)
         {
             MealNumber = mealNumber;

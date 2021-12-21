@@ -210,7 +210,8 @@ namespace ChallengeTwoGreenPlan.UI
         private void ListGasVehicles()
         {
             Console.Clear();
-            List<Vehicle> gasList = _vehicle.ViewGasVehicles();
+            List<Vehicle> gasList = new List<Vehicle>();
+            gasList = _vehicle.ViewGasVehicles();
             Console.WriteLine(
                 "|||||Gas Vehicles|||||\n" +
                 "**********************");

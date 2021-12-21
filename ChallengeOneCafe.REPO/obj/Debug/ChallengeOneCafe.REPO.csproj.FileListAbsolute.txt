@@ -15,3 +15,11 @@ C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\o
 C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.csproj.CopyComplete
 C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.dll
 C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\bin\Debug\ChallengeOneCafe.REPO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\bin\Debug\ChallengeOneCafe.REPO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\bin\Debug\ChallengeOneCafe.POCO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\bin\Debug\ChallengeOneCafe.POCO.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.csproj.AssemblyReference.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.csproj.CoreCompileInputs.cache
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.dll
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeOneCafe.REPO\obj\Debug\ChallengeOneCafe.REPO.pdb

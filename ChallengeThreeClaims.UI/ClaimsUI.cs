@@ -19,7 +19,7 @@ namespace ChallengeThreeClaims.UI
             Seed();
             while (isAppRunning)
             {
-            RunApplication();
+                RunApplication();
             }
         }
         public void Seed()
@@ -29,13 +29,10 @@ namespace ChallengeThreeClaims.UI
             Claim claimThree = new Claim(3, TypeOfClaim.Theft, "Burglary", 5000m, false);
             _claimRepo.CreateClaim(claimOne);
             _claimQueue.Enqueue(claimOne);
-            _claimList.Add(claimOne);
             _claimRepo.CreateClaim(claimTwo);
             _claimQueue.Enqueue(claimTwo);
-            _claimList.Add(claimTwo);
             _claimRepo.CreateClaim(claimThree);
             _claimQueue.Enqueue(claimThree);
-            _claimList.Add(claimThree);
         }
         private void RunApplication()
         {
@@ -49,41 +46,118 @@ namespace ChallengeThreeClaims.UI
                 "Komodo Claim Management\n" +
                 "***********************\n" +
                 "Select An Option:\n" +
-                "1 ) See All Claims\n" +
-                "2 ) View New Claims\n" +
-                "3 ) Manage Claims\n" +
+                "1 ) View Claim Queue\n" +
+                "2 ) Manage Claims\n" +
+                "3 ) Exit Application\n" +
                 "------------------------\n");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
-                    ShowAllClaims();
-                    break;
-                case "2":
                     ViewClaimQueue();
                     break;
-                case "3":
+                case "2":
                     ManageClaimMenu();
+                    break;
+                case "3":
+                    Console.Clear();
+                    isAppRunning = false;
                     break;
                 default:
                     Error();
                     break;
             }
         }
-        private void Error()
+        public void ViewClaimQueue()
+        {
+            Console.Clear();
+            foreach (var claim in _claimQueue)
+            {
+                Console.WriteLine(
+                    $"**************************\n " +
+                    $"Claim ID: {claim.ClaimID}\n" +
+                    $"Claim Type: {claim.ClaimType}\n" +
+                    $"Claim Amount: {claim.ClaimAmount}\n" +
+                    $"Valid Claim: {claim.IsClaimValid}");
+            }
+            Console.WriteLine(
+                "*********************************************************\n" +
+                "Enter 1 | To Manage Next Claim || Enter 2 | For Main Menu\n" +
+                "*********************************************************");
+
+            string userInput = Console.ReadLine();
+            switch(userInput)
+            {
+                case "1":
+                    ClaimDetailView();
+                    break;
+                case "2":
+                    MainMenu();
+                    break;
+                default:
+                    Error();
+                    break;
+            }
+        }
+        public void ClaimDetailView()
+        {
+            Claim nextClaimInQueue = _claimQueue.Peek();
+            Console.Clear();
+            Console.WriteLine(
+                $"**********************************************\n" +
+                $"|Claim ID: {nextClaimInQueue.ClaimID}\n" +
+                $"|Claim Type: {nextClaimInQueue.ClaimType}\n" +
+                $"|Description: {nextClaimInQueue.Description}\n" +
+                $"|Amount: ${nextClaimInQueue.ClaimAmount}\n" +
+                $"|Date Of Incident: {nextClaimInQueue.DateOfIncident}\n" +
+                $"|Date of Claim: {nextClaimInQueue.DateOfClaim}\n" +
+                $"|Valid Claim: {nextClaimInQueue.IsClaimValid}\n" +
+                $"**********************************************\n" +
+                $"Enter 1 | To Remove Claim || Enter 2 | For Main Menu");
+            int userInput = int.Parse(Console.ReadLine());
+            switch(userInput)
+            {
+                case 1:
+                    RemoveClaim();
+                    break;
+                case 2:
+                    MainMenu();
+                    break;
+                default:
+                    Error();
+                    break;
+            }
+        }
+        private void ManageClaimMenu()
         {
             Console.Clear();
             Console.WriteLine(
-                        "*****\n" +
-                        "ERROR\n" +
-                        "*****\n" +
-                        "Press Any Key For Main Menu");
-            Console.ReadKey();
-            MainMenu();
+                "Select An Option\n" +
+                "******************\n" +
+                "1) Add Claim\n" +
+                "2) Remove Claim\n" +
+                "3) Main Menu\n" +
+                "******************");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    AddClaim();
+                    break;
+                case "2":
+                    RemoveClaim();
+                    break;
+                case "3":
+                    MainMenu();
+                    break;
+                default:
+                    Error();
+                    break;
+            }
         }
         public void AddClaim()
         {
-            Claim claimToAdd = new Claim(); 
+            Claim claimToAdd = new Claim();
             Console.Clear();
             Console.WriteLine(
                 "Select Claim Type:\n" +
@@ -121,15 +195,18 @@ namespace ChallengeThreeClaims.UI
             Console.WriteLine(
                 "Enter Date Of Incident\n" +
                 "**********************");
-            claimToAdd.DateOfIncident = DateTime.Parse(Console.ReadLine()); // Need To Test This 
+            claimToAdd.DateOfIncident = DateTime.Parse(Console.ReadLine());
             Console.Clear();
             Console.WriteLine(
                 "Enter Date Of Claim\n" +
                 "*******************");
             claimToAdd.DateOfClaim = DateTime.Parse(Console.ReadLine());
 
+            _claimRepo.ValidateClaim(claimToAdd.DateOfIncident, claimToAdd.DateOfClaim);
+
             if (_claimRepo.ValidateClaim(claimToAdd.DateOfIncident, claimToAdd.DateOfClaim) == true)
             {
+                claimToAdd.IsClaimValid = true;
                 Console.Clear();
                 Console.WriteLine(
                     "***********************\n" +
@@ -138,10 +215,12 @@ namespace ChallengeThreeClaims.UI
                     "Press Any Key To Continue");
                 _claimRepo.CreateClaim(claimToAdd);
                 _claimQueue.Enqueue(claimToAdd);
+                Console.ReadKey();
                 ViewClaimQueue();
             }
             else if (_claimRepo.ValidateClaim(claimToAdd.DateOfIncident, claimToAdd.DateOfClaim) == false)
             {
+                claimToAdd.IsClaimValid = false;
                 Console.Clear();
                 Console.WriteLine(
                     "*******************\n" +
@@ -149,228 +228,55 @@ namespace ChallengeThreeClaims.UI
                     "*********************\n" +
                     "Press Any Key To Continue");
                 _claimRepo.CreateClaim(claimToAdd);
-                _claimList.Add(claimToAdd);
                 _claimQueue.Enqueue(claimToAdd);
+                Console.ReadKey();
                 ViewClaimQueue();
             }
             else
             {
                 Error();
-            }
-        }
-        public void ViewClaimQueue()
-        {
-            Console.Clear();
-            foreach (var claim in _claimQueue)
-            {
-                Console.WriteLine(
-                    $"**************************\n " +
-                    $"Claim ID: {claim.ClaimID}\n" +
-                    $"Claim Type: {claim.ClaimType}\n" +
-                    $"Claim Amount: {claim.ClaimAmount}\n" +
-                    $"Valid Claim: {claim.IsClaimValid}");
-            }
-            Console.ReadKey();
-            MainMenu();
-        }
-        public void ShowAllClaims()
-        {
-            Console.Clear();
-            foreach (var claim in _claimList)
-            {
-                Console.WriteLine(
-                    $"*****************\n" +
-                    $"Claim ID: {claim.ClaimID} | Claim Type: {claim.ClaimType} | Valid Claim : {claim.IsClaimValid}");
-            }
-            Console.WriteLine("**************\n" +
-                "Press Any Key To Continue");
-            Console.ReadKey();
-        }
-        public void ClaimDetailView(Claim claimToView)
-        {
-            Console.Clear();
-            Console.WriteLine(
-                $"**********************************************\n" +
-                $"Claim ID: {claimToView.ClaimID}\n" +
-                $"Claim Type: {claimToView.ClaimType}\n" +
-                $"Description: {claimToView.Description}\n" +
-                $"Amount: ${claimToView.ClaimAmount}\n" +
-                $"Date Of Incident: {claimToView.DateOfIncident}\n" +
-                $"Date of Claim: {claimToView.DateOfClaim}\n" +
-                $"Valid Claim: {claimToView.IsClaimValid}\n" +
-                $"**********************************************\n" +
-                $"To Manage Claim Now    | Enter 1\n" +
-                $"To Return To Main Menu | Enter 2");
-            string userInput = Console.ReadLine();
-            switch (userInput)
-            {
-                case "1":
-                    ManageClaimMenu();
-                    break;
-                case "2":
-                    MainMenu();
-                    break;
-                default:
-                    Error();
-                    break;
-            }
-        }
-        private void ManageClaimMenu()
-        {
-            Console.Clear();
-            Console.WriteLine(
-                "Select An Option\n" +
-                "******************\n" +
-                "1) Add Claim\n" +
-                "2) Update Claim\n" +
-                "3) Remove Claim\n" +
-                "4) Main Menu\n" +
-                "******************");
-            string userInput = Console.ReadLine();
-            switch (userInput)
-            {
-                case "1":
-                    AddClaim();
-                    break;
-                case "2":
-                    UpdateClaim();
-                    break;
-                case "3":
-                    RemoveClaim();
-                    break;
-                case "4":
-                    MainMenu();
-                    break;
-                default:
-                    Error();
-                    break;
             }
         }
         public void RemoveClaim()
         {
-            Console.Clear();
             Claim claimToRemove = _claimQueue.Peek();
-
-            Console.WriteLine("Do you want to deal with this");
-            //some input 
-
-            //yes 
-            _claimRepo.RemoveClaim();
-
-
-
-
             Console.WriteLine(
-                $"Are you sure you want to remove Claim ID:{claimToRemove.ClaimID}?\n" +
-                $"Enter Y for Yes | Enter N for No");
-
-            string userinput = Console.ReadLine().ToUpper();
-            switch (userinput)
+                "Are you sure you want to remove this claim?\n" +
+                "*******************************************\n" +
+                "Enter Y To Confirm | Enter N for Main Menu\n" +
+                "*******************************************");
+            string userInput = Console.ReadLine().ToUpper();
+            switch (userInput)
             {
                 case "Y":
                     Console.Clear();
+                    _claimQueue.Dequeue();
                     Console.WriteLine(
-                        $"Claim ID:{claimToRemove.ClaimID} was successfully removed.\n" +
-                        $"************************************************************\n" +
-                        $"Press Any Key To Continue");
+                            "*********************************************\n" +
+                            "Claim was successfully removed from the queue\n" +
+                            "*********************************************\n" +
+                            "Press Any Key For Main Menu");
                     Console.ReadKey();
-                    ManageClaimMenu();
+                    MainMenu();
                     break;
                 case "N":
-                    ManageClaimMenu();
+                    MainMenu();
                     break;
                 default:
                     Error();
                     break;
             }
         }
-        private void UpdateClaim()
+        private void Error()
         {
             Console.Clear();
-            ShowAllClaims();
             Console.WriteLine(
-                "************************\n" +
-                "Enter Claim ID To Update\n" +
-                "************************");
-            int idUserInput = int.Parse(Console.ReadLine());
-            Claim oldClaim = _claimRepo.ViewSingleClaim(idUserInput);
-            Claim updatedClaim = new Claim();
-
-            Console.Clear();
-            Console.WriteLine(
-                "Select Claim Type:\n" +
-                "1) Car\n" +
-                "2) Home\n" +
-                "3) Theft\n");
-            int typeInput = int.Parse(Console.ReadLine());
-            if (typeInput == 1)
-            {
-                updatedClaim.ClaimType = TypeOfClaim.Car;
-            }
-            else if (typeInput == 2)
-            {
-                updatedClaim.ClaimType = TypeOfClaim.Home;
-            }
-            else if (typeInput == 3)
-            {
-                updatedClaim.ClaimType = TypeOfClaim.Theft;
-            }
-            else
-            {
-                Error();
-            }
-            Console.Clear();
-            Console.WriteLine(
-                "Enter Brief Description Of The Incident\n" +
-                "***************************************");
-            updatedClaim.Description = Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine(
-                "Enter The Amount Of The Claim\n" +
-                "*****************************");
-            updatedClaim.ClaimAmount = Decimal.Parse(Console.ReadLine());
-            Console.Clear();
-            Console.WriteLine(
-                "Enter Date Of Incident\n" +
-                "**********************");
-            updatedClaim.DateOfIncident = DateTime.Parse(Console.ReadLine()); // Need To Test This 
-            Console.Clear();
-            Console.WriteLine(
-                "Enter Date Of Claim\n" +
-                "*******************");
-            updatedClaim.DateOfClaim = DateTime.Parse(Console.ReadLine());
-
-            if (_claimRepo.ValidateClaim(updatedClaim.DateOfIncident, updatedClaim.DateOfClaim) == true)
-            {
-                Console.Clear();
-                Console.WriteLine(
-                    "***********************\n" +
-                    "This Claim Is Valid\n" +
-                    "*******************\n" +
-                    "Press Any Key To Continue");
-                _claimRepo.UpdateClaim(idUserInput, oldClaim);
-                _claimList.Add(updatedClaim);
-                _claimQueue.Enqueue(updatedClaim);
-                ViewClaimQueue();
-            }
-            else if (_claimRepo.ValidateClaim(updatedClaim.DateOfIncident, updatedClaim.DateOfClaim) == false)
-            {
-                Console.Clear();
-                Console.WriteLine(
-                    "*******************\n" +
-                    "This Claim Is Invalid\n" +
-                    "*********************\n" +
-                    "Press Any Key To Continue");
-                _claimRepo.UpdateClaim(idUserInput, oldClaim);
-                _claimList.Add(updatedClaim);
-                _claimQueue.Enqueue(updatedClaim);
-                ViewClaimQueue();
-            }
-            else
-            {
-                Error();
-            }
-        }// delete or comment out
-        
+                        "*****\n" +
+                        "ERROR\n" +
+                        "*****\n" +
+                        "Press Any Key For Main Menu");
+            Console.ReadKey();
+            MainMenu();
+        }
     }
 }

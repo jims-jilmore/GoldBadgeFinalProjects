@@ -34,7 +34,7 @@ namespace ChallengeTwoGreenPlan.REPO
                 if (vehicle.VehicleType == "Gas")
                 {
                     _vehicle.Add(vehicle);
-                    return _vehicle; ;
+                    return _vehicle;
                 }
             }
             return null;

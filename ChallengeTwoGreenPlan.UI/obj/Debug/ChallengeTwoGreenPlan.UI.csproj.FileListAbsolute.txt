@@ -33,3 +33,4 @@ C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\
 C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.csproj.CoreCompileInputs.cache
 C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.exe
 C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.pdb
+C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeTwoGreenPlan.UI\obj\Debug\ChallengeTwoGreenPlan.UI.csproj.CopyComplete
