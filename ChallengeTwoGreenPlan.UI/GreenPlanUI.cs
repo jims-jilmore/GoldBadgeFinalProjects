@@ -16,8 +16,8 @@ namespace ChallengeTwoGreenPlan.UI
         public void Seed()
         {
             Vehicle vehicleOne = new Vehicle("Gas", "2022", "Kia", "Telluride", 50.0000m, true, 25, 32, 1);
-            Vehicle vehicleTwo = new Vehicle("Electric" ,"2022", "Tesla", "Model X", true);
-            Vehicle vehicleThree = new Vehicle("Gas", "2022", "Ford", "F-150 Raptor", false); 
+            Vehicle vehicleTwo = new Vehicle("Electric", "2022", "Tesla", "Model X", true);
+            Vehicle vehicleThree = new Vehicle("Gas", "2022", "Ford", "F-150 Raptor", false);
             Vehicle vehicleFour = new Vehicle("Gas", "1969", "Ford", "Mustang", 10000000m, false, 1, 2, 4);
             Vehicle vehicleFive = new Vehicle("Electric", "2017", "Chevy", "Volt", true);
             Vehicle vehicleSix = new Vehicle("Hybrid", "2019", "Toyota", "Prius", true);
@@ -33,7 +33,7 @@ namespace ChallengeTwoGreenPlan.UI
             Seed();
             while (_isAppRunning)
             {
-            RunApplication();
+                RunApplication();
             }
         }
         private void RunApplication()
@@ -97,7 +97,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Select An Option:\n" +
                 "-----------------\n" +
                 "1 ) View Full Vehicle Inventory\n" +
-                "2 ) View Vehicle Inventory by Type\n" + 
+                "2 ) View Vehicle Inventory by Type\n" +
                 "3 ) Search Vehicle Inventory for Specific Vehicle\n" +
                 "4 ) Return to Main Menu");
             string userInput = Console.ReadLine();
@@ -108,7 +108,8 @@ namespace ChallengeTwoGreenPlan.UI
                     ViewVehicleInventoryMenu();
                     break;
                 case "2":
-                    ListVehicleByType();
+                    DisplayListByType();
+                   // ListVehicleByType();
                     break;
                 case "3":
                     SearchSpecificVehicle();
@@ -128,7 +129,7 @@ namespace ChallengeTwoGreenPlan.UI
             Console.WriteLine("Enter ID of the Vehicle To View");
             Vehicle vehicle = _vehicle.ViewVehicleById(int.Parse(Console.ReadLine()));
             DisplayVehicleDetail(vehicle);
-            
+
         }
         private void DisplayVehicleDetail(Vehicle vehicle)
         {
@@ -159,7 +160,7 @@ namespace ChallengeTwoGreenPlan.UI
                     ViewVehicleInventoryMenu();
                 }
             }
-        } 
+        }
         public void DisplayVehicleInventory()
         {
             Console.Clear();
@@ -192,7 +193,7 @@ namespace ChallengeTwoGreenPlan.UI
             {
                 case "1":
                     ListGasVehicles();
-                    break;  
+                    break;
                 case "2":
                     ListElectricVehicles();
                     break;
@@ -206,8 +207,23 @@ namespace ChallengeTwoGreenPlan.UI
                     ErrorMessage();
                     break;
             }
-        } 
-        private void ListGasVehicles()
+        }
+
+        private void DisplayListByType()
+        {
+            Console.WriteLine("To search vehicle please type Gas, Electric, or Hybrid");
+            string userInput = Console.ReadLine();
+            var item = _vehicle.ViewVehicleByType(userInput);
+           foreach(var spec in item)
+            {
+                //Console.WriteLine($"{spec} {string.Join(", ", item.Select(info => string.Format("{0} {1]", info.Make, info.Model))) }");
+                Console.WriteLine($"ID: {spec.IdNumber} | {spec.Year} {spec.Make} {spec.Model}");
+            }
+            Console.ReadLine();
+        }
+
+
+        private void ListGasVehicles() //Something not listing correctly here. same for each type.
         {
             Console.Clear();
             List<Vehicle> gasList = new List<Vehicle>();
@@ -217,14 +233,14 @@ namespace ChallengeTwoGreenPlan.UI
                 "**********************");
             foreach (var vehicle in gasList)
             {
-                Console.WriteLine($"ID: {vehicle.IdNumber} | {vehicle.Year} {vehicle.Make} {vehicle.Model}");
+                
             }
             Console.WriteLine(
                 "**********************\n" +
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        } 
+        }
         private void ListElectricVehicles()
         {
             Console.Clear();
@@ -241,7 +257,7 @@ namespace ChallengeTwoGreenPlan.UI
                 "Press Any Key To Return To Inventory Menu");
             Console.ReadKey();
             ViewVehicleInventoryMenu();
-        } 
+        }
         private void ListHybridVehicles()
         {
             Console.Clear();
@@ -282,7 +298,7 @@ namespace ChallengeTwoGreenPlan.UI
                     MainMenu();
                     break;
             }
-        } 
+        }
         private void AddVehicle()
         {
             Vehicle vehicleToAdd = new Vehicle();
@@ -381,7 +397,7 @@ namespace ChallengeTwoGreenPlan.UI
                 Console.ReadKey();
                 MainMenu();
             }
-        } 
+        }
         private void UpdateVehicleInfoMenu()
         {
             Console.Clear();

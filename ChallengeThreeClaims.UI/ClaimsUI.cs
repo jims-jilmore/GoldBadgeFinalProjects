@@ -11,7 +11,6 @@ namespace ChallengeThreeClaims.UI
     class ClaimsUI
     {
         private readonly ClaimREPO _claimRepo = new ClaimREPO();
-        private readonly Queue<Claim> _claimQueue = new Queue<Claim>();
         private bool isAppRunning = true;
 
         public void Run()
@@ -28,11 +27,8 @@ namespace ChallengeThreeClaims.UI
             Claim claimTwo = new Claim(2, TypeOfClaim.Home, "Kitchen Fire", 10000m, true);
             Claim claimThree = new Claim(3, TypeOfClaim.Theft, "Burglary", 5000m, false);
             _claimRepo.CreateClaim(claimOne);
-            _claimQueue.Enqueue(claimOne);
             _claimRepo.CreateClaim(claimTwo);
-            _claimQueue.Enqueue(claimTwo);
             _claimRepo.CreateClaim(claimThree);
-            _claimQueue.Enqueue(claimThree);
         }
         private void RunApplication()
         {
@@ -71,7 +67,8 @@ namespace ChallengeThreeClaims.UI
         public void ViewClaimQueue()
         {
             Console.Clear();
-            foreach (var claim in _claimQueue)
+            var queue = _claimRepo.ShowClaimQueue();
+            foreach (var claim in queue)
             {
                 Console.WriteLine(
                     $"**************************\n " +
@@ -86,7 +83,7 @@ namespace ChallengeThreeClaims.UI
                 "*********************************************************");
 
             string userInput = Console.ReadLine();
-            switch(userInput)
+            switch (userInput)
             {
                 case "1":
                     ClaimDetailView();
@@ -101,7 +98,8 @@ namespace ChallengeThreeClaims.UI
         }
         public void ClaimDetailView()
         {
-            Claim nextClaimInQueue = _claimQueue.Peek();
+            var queue = _claimRepo.ShowClaimQueue();
+            Claim nextClaimInQueue = queue.Peek();
             Console.Clear();
             Console.WriteLine(
                 $"**********************************************\n" +
@@ -115,10 +113,11 @@ namespace ChallengeThreeClaims.UI
                 $"**********************************************\n" +
                 $"Enter 1 | To Remove Claim || Enter 2 | For Main Menu");
             int userInput = int.Parse(Console.ReadLine());
-            switch(userInput)
+            switch (userInput)
             {
                 case 1:
-                    RemoveClaim();
+                    // RemoveClaim();
+                    _claimRepo.RemoveClaim();
                     break;
                 case 2:
                     MainMenu();
@@ -214,7 +213,7 @@ namespace ChallengeThreeClaims.UI
                     "*******************\n" +
                     "Press Any Key To Continue");
                 _claimRepo.CreateClaim(claimToAdd);
-                _claimQueue.Enqueue(claimToAdd);
+               // _claimQueue.Enqueue(claimToAdd);
                 Console.ReadKey();
                 ViewClaimQueue();
             }
@@ -228,7 +227,6 @@ namespace ChallengeThreeClaims.UI
                     "*********************\n" +
                     "Press Any Key To Continue");
                 _claimRepo.CreateClaim(claimToAdd);
-                _claimQueue.Enqueue(claimToAdd);
                 Console.ReadKey();
                 ViewClaimQueue();
             }
@@ -250,7 +248,8 @@ namespace ChallengeThreeClaims.UI
             {
                 case "Y":
                     Console.Clear();
-                    _claimQueue.Dequeue();
+                    _claimRepo.RemoveClaim();
+                   // _claimQueue.Dequeue();
                     Console.WriteLine(
                             "*********************************************\n" +
                             "Claim was successfully removed from the queue\n" +

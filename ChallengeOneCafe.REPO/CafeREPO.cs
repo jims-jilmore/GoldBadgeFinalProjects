@@ -39,15 +39,15 @@ namespace ChallengeOneCafe.REPO
             }
             return null;
         }
-        public bool CreateSideItem(string sideItemToAdd)
+        public List<string> CreateSideItem(string sideItemToAdd)
         {
             if (sideItemToAdd is null)
             {
-                return false;
+                return null; 
             }
             List<string> _sides = new List<string>();
             _sides.Add(sideItemToAdd);
-            return true;
+            return _sides;
         }// TEST
         public List<MenuItem> ViewMenuList()
         {

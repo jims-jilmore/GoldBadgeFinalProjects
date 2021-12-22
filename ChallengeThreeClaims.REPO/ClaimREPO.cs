@@ -24,9 +24,15 @@ namespace ChallengeThreeClaims.REPO
             }
             claimId++;
             claim.ClaimID = claimId;
+            _claimQueue.Enqueue(claim);
             return true;
         }
         
+        public bool RemoveClaim()
+        {
+            _claimQueue.Dequeue();
+            return true;
+        }
         public bool ValidateClaim(DateTime dateOfIncident, DateTime dateOfClaim)
         {
             TimeSpan timeSinceIncident = new TimeSpan();

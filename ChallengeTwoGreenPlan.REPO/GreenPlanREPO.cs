@@ -10,7 +10,7 @@ namespace ChallengeTwoGreenPlan.REPO
     public class GreenPlanREPO
     {
         private readonly List<Vehicle> _vehicle = new List<Vehicle>();
-        private int generateVehicleId = 0; 
+        private int generateVehicleId = 0;
 
         public bool CreateVehicle(Vehicle vehicleToCreate)
         {
@@ -27,6 +27,23 @@ namespace ChallengeTwoGreenPlan.REPO
         {
             return _vehicle;
         }
+
+        public List<Vehicle> ViewVehicleByType(string type)
+        {
+            List<Vehicle> displayList = new List<Vehicle>();
+
+            foreach (var vehicle in _vehicle)
+            {
+                if (vehicle.VehicleType == type)
+                {
+                    displayList.Add(vehicle);
+                }
+                   return displayList;
+            }
+
+            return null;
+        }
+
         public List<Vehicle> ViewGasVehicles()
         {
             foreach (var vehicle in _vehicle)
@@ -57,7 +74,7 @@ namespace ChallengeTwoGreenPlan.REPO
             {
                 if (vehicle.VehicleType == "Hybrid")
                 {
-                    
+
                     _vehicle.Add(vehicle);
                     return _vehicle;
                 }
@@ -66,7 +83,7 @@ namespace ChallengeTwoGreenPlan.REPO
         }
         public Vehicle ViewVehicleById(int vehicleId)
         {
-           foreach (var vehicle in _vehicle)
+            foreach (var vehicle in _vehicle)
             {
                 if (vehicleId == vehicle.IdNumber)
                 {
@@ -99,7 +116,7 @@ namespace ChallengeTwoGreenPlan.REPO
         public int GetListLength()
         {
             int listLength = _vehicle.Count();
-            return listLength;  
+            return listLength;
         }
         public bool UpdateVehicle(int idToUpdate, Vehicle oldVehicle)
         {
@@ -119,7 +136,7 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             else
             {
-            return false;
+                return false;
             }
         }
     }
