@@ -179,15 +179,23 @@ namespace ChallengeTwoGreenPlan.UI
         }
         private void DisplayListByType()
         {
-            Console.WriteLine("To search vehicle please type Gas, Electric, or Hybrid");
+            Console.Clear();
+            Console.WriteLine(
+                "To search vehicle please type Gas, Electric, or Hybrid\n" +
+                "******************************************************");
             string userInput = Console.ReadLine();
             var item = _vehicle.ViewVehicleByType(userInput);
+            Console.WriteLine("*************************");
            foreach(var spec in item)
             {
                 //Console.WriteLine($"{spec} {string.Join(", ", item.Select(info => string.Format("{0} {1]", info.Make, info.Model))) }");
                 Console.WriteLine($"ID: {spec.IdNumber} | {spec.Year} {spec.Make} {spec.Model}");
             }
-            Console.ReadLine();
+            Console.WriteLine(
+                "*************************\n" +
+                "Press Any Key To Continue");
+            Console.ReadKey();
+            ViewVehicleInventoryMenu();
         }
         private void AddVehicleToInventory()
         {

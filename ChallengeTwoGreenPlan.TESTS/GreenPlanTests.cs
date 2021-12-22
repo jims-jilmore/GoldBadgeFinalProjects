@@ -32,7 +32,17 @@ namespace ChallengeTwoGreenPlan.TESTS
         [TestMethod]
         public void ViewVehicleByType_ShouldNotReturnNull()
         {
+            Vehicle testV = new Vehicle();
+            Vehicle testVtwo = new Vehicle();
+            Vehicle testVthree = new Vehicle();
 
+            _gRepo.CreateVehicle(testV);
+            _gRepo.CreateVehicle(testVtwo);
+            _gRepo.CreateVehicle(testVthree);
+
+            Assert.IsNotNull(_gRepo.ViewVehicleByType(testV.VehicleType));
+            Assert.IsNotNull(_gRepo.ViewVehicleByType(testVtwo.VehicleType));
+            Assert.IsNotNull(_gRepo.ViewVehicleByType(testVthree.VehicleType));
         }
 
         [TestMethod]
