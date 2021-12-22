@@ -32,10 +32,6 @@ namespace ChallengeTwoGreenPlan.TESTS
         [TestMethod]
         public void ViewVehicleByType_ShouldNotReturnNull()
         {
-            //should return a !=NUL
-            string typeInput = "gas";
-            List<Vehicle> test =_gRepo.ViewVehicleByType(typeInput);
-            Assert.IsNotNull(test);
 
         }
 

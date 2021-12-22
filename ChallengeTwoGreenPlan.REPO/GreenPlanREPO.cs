@@ -37,9 +37,8 @@ namespace ChallengeTwoGreenPlan.REPO
                 {
                     displayList.Add(vehicle);
                 }
-                   return displayList;
             }
-            return null;
+                   return displayList;
         }
         public Vehicle ViewVehicleById(int vehicleId)
         {

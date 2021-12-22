@@ -63,5 +63,12 @@ namespace ChallengeOneCafe.TESTS
 
             CollectionAssert.Equals(expected, itemToDelete);
         }
+        [TestMethod]
+        public void Remove()
+        {
+            _cafeRepo.CreateMenuItem(_menuItem);
+            bool value =_cafeRepo.Remove(_menuItem.MealNumber);
+            Assert.IsTrue(value);
+        }
     }
 }

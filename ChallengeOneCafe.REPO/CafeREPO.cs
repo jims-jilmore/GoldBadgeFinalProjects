@@ -57,5 +57,11 @@ namespace ChallengeOneCafe.REPO
             }
             return null;
         }
+        public bool Remove(int id)
+        {
+            var item = ViewMenuItem(id);
+           var value = _menuItem.Remove(item);
+            return value;
+        }
     }
 }
