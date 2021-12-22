@@ -64,7 +64,7 @@ namespace ChallengeThreeClaims.UI
                     break;
             }
         }
-        public void ViewClaimQueue()
+        public void ViewClaimQueue() 
         {
             Console.Clear();
             var queue = _claimRepo.ShowClaimQueue();
@@ -116,8 +116,8 @@ namespace ChallengeThreeClaims.UI
             switch (userInput)
             {
                 case 1:
-                    // RemoveClaim();
                     _claimRepo.RemoveClaim();
+                    ClaimDetailView();
                     break;
                 case 2:
                     MainMenu();
@@ -144,7 +144,7 @@ namespace ChallengeThreeClaims.UI
                     AddClaim();
                     break;
                 case "2":
-                    RemoveClaim();
+                    ClaimDetailView();
                     break;
                 case "3":
                     MainMenu();
@@ -233,37 +233,6 @@ namespace ChallengeThreeClaims.UI
             else
             {
                 Error();
-            }
-        }
-        public void RemoveClaim()
-        {
-            Claim claimToRemove = _claimQueue.Peek();
-            Console.WriteLine(
-                "Are you sure you want to remove this claim?\n" +
-                "*******************************************\n" +
-                "Enter Y To Confirm | Enter N for Main Menu\n" +
-                "*******************************************");
-            string userInput = Console.ReadLine().ToUpper();
-            switch (userInput)
-            {
-                case "Y":
-                    Console.Clear();
-                    _claimRepo.RemoveClaim();
-                   // _claimQueue.Dequeue();
-                    Console.WriteLine(
-                            "*********************************************\n" +
-                            "Claim was successfully removed from the queue\n" +
-                            "*********************************************\n" +
-                            "Press Any Key For Main Menu");
-                    Console.ReadKey();
-                    MainMenu();
-                    break;
-                case "N":
-                    MainMenu();
-                    break;
-                default:
-                    Error();
-                    break;
             }
         }
         private void Error()

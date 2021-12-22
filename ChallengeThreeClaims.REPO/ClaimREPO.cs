@@ -27,7 +27,6 @@ namespace ChallengeThreeClaims.REPO
             _claimQueue.Enqueue(claim);
             return true;
         }
-        
         public bool RemoveClaim()
         {
             _claimQueue.Dequeue();

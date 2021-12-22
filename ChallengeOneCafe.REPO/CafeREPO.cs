@@ -48,7 +48,7 @@ namespace ChallengeOneCafe.REPO
             List<string> _sides = new List<string>();
             _sides.Add(sideItemToAdd);
             return _sides;
-        }// TEST
+        }
         public List<MenuItem> ViewMenuList()
         {
             return _menuItem;

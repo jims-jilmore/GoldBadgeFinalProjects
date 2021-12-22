@@ -6,3 +6,12 @@ C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj
 C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.csproj.CoreCompileInputs.cache
 C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.dll
 C:\Users\james\source\repos\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\bin\Debug\ChallengeThreeClaims.REPO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\bin\Debug\ChallengeThreeClaims.REPO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\bin\Debug\ChallengeThreeClaims.POCO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\bin\Debug\ChallengeThreeClaims.POCO.pdb
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.csproj.AssemblyReference.cache
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.csproj.CopyComplete
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.dll
+C:\ElevenFiftyGold\GoldBadgeFinal\GoldBadgeFinalProjects\ChallengeThreeClaims.REPO\obj\Debug\ChallengeThreeClaims.REPO.pdb

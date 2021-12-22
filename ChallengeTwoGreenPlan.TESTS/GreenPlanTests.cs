@@ -4,7 +4,7 @@ using System;
 namespace ChallengeTwoGreenPlan.TESTS
 {
     [TestClass]
-    public class UnitTest1
+    public class GreenPlanTests
     {
         [TestMethod]
         public void TestMethod1()

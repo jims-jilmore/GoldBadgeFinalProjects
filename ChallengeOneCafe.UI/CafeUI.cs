@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ChallengeOneCafe.UI
@@ -11,10 +12,14 @@ namespace ChallengeOneCafe.UI
     class CafeUI
     {
         private readonly CafeREPO _menuItem = new CafeREPO();
+        private bool isRunning = true;
         public void Run()
         {
             Seed();
-            RunProgram();
+            while (isRunning)
+            {
+                RunProgram();
+            }
         }
         public void RunProgram()
         {
@@ -70,8 +75,9 @@ namespace ChallengeOneCafe.UI
                     break;
                 case "99":
                     Console.Clear();
+                    isRunning = false;
                     Console.WriteLine("Goodbye");
-                    Console.ReadLine();
+                    Thread.Sleep(5000);
                     break;
                 default:
                     Console.Clear();
@@ -138,53 +144,39 @@ namespace ChallengeOneCafe.UI
             Console.Clear();
             Console.WriteLine("Enter the Name of the Meal");
             newMenuItem.MealName = Console.ReadLine();
+
             Console.Clear();
             Console.WriteLine("Enter a short description of the Meal");
             newMenuItem.MealDescription = Console.ReadLine();
+
             Console.Clear();
             Console.WriteLine(
                 "Enter the Main Ingredient of the Meal\n" +
                 "Ex: Beef, Chicken, Pork");
             newMenuItem.MainIngredient = Console.ReadLine();
+
             Console.Clear();
             List<string> sides = new List<string>();
-            Console.WriteLine("Please enter your first side");
+            Console.WriteLine("Enter The First Side");
             string side = Console.ReadLine();
             sides.Add(side);
-            Console.WriteLine("would you like to add another? y/n");
+            Console.WriteLine("Add Another Side? (y/n)");
             string userInput = Console.ReadLine().ToLower();
             while (userInput == "y")
             {
-                Console.WriteLine("Please enter your next side");
+                Console.Clear();
+                Console.WriteLine("Enter Your Next Side");
                 string nextside = Console.ReadLine();
                 sides.Add(nextside);
-                Console.WriteLine("would you like to add another? y/n");
+                Console.WriteLine("Add Another Side? (y/n)");
                 userInput = Console.ReadLine().ToLower();
             }
             newMenuItem.SideIngredients = sides;
 
-            //Console.WriteLine("Enter any Side Ingredients | Example: French Fries, Onion Rings, Waffle Fries\n" +
-            //    "Press 1 to add a single ingredient\n" +
-            //    "Press 2 to add multiple ingredients\n" +
-            //    "Press 3 to add no side ingredients");
-            //string userInput = Console.ReadLine();
-            //switch (userInput)
-            //{
-            //    case "1":
-            //        AddSingleIngredient();
-            //        break;
-            //    case "2":
-            //        AddMultipleIngredients();
-            //        break;
-            //    default:
-            //        Console.WriteLine("Please select an option");
-            //        break;
-            //}
-            //var items = _menuItem.CreateSideItem(side);
-            //newMenuItem.SideIngredients = items;
             Console.Clear();
             Console.WriteLine("Enter the price of the Meal");
             newMenuItem.MealPrice = Decimal.Parse(Console.ReadLine());
+
             Console.Clear();
             Console.WriteLine("Is the Meal available now? (y/n)");
             string availableInput = Console.ReadLine().ToLower();
@@ -200,6 +192,7 @@ namespace ChallengeOneCafe.UI
                     Console.WriteLine("Please select y or n");
                     break;
             }
+
             Console.Clear();
             if (_menuItem.CreateMenuItem(newMenuItem) == true)
             {
@@ -215,42 +208,6 @@ namespace ChallengeOneCafe.UI
                     $"Press any key to return to Main Menu");
                 Console.ReadKey();
                 MainMenu();
-            }
-        }
-        public void AddMultipleIngredients()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter the number of side ingredients for the Meal");
-            int userInput = int.Parse(Console.ReadLine());
-            while (userInput > 0)
-            {
-                AddSingleIngredient();
-                userInput--;
-            }
-            if (userInput == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
-            }
-            else
-            {
-                Console.WriteLine("Error");
-                Console.ReadLine();
-            }
-
-        }
-        public void AddSingleIngredient()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter the name of the Side Ingredient");
-            string ingredient = Console.ReadLine();
-            _menuItem.CreateSideItem(ingredient);
-            if (_menuItem.CreateSideItem(ingredient) != null)
-            {
-                Console.WriteLine($"{ingredient} was added successfully.\n" +
-                    $"Press Any Key To Continue");
-                Console.ReadKey();
             }
         }
         public void DeleteMenuItem()
@@ -277,7 +234,7 @@ namespace ChallengeOneCafe.UI
         }
         public void DisplayItemDetail(MenuItem menuItem)
         {
-            List<string> sides = _menuItem.ListAllSides(menuItem);// System.NullReferenceException
+            List<string> sides = _menuItem.ListAllSides(menuItem);
             Console.Clear();
             Console.WriteLine(
                  $"#{menuItem.MealNumber} {menuItem.MealName} \n" +

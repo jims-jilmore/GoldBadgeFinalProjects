@@ -27,7 +27,6 @@ namespace ChallengeTwoGreenPlan.REPO
         {
             return _vehicle;
         }
-
         public List<Vehicle> ViewVehicleByType(string type)
         {
             List<Vehicle> displayList = new List<Vehicle>();
@@ -39,45 +38,6 @@ namespace ChallengeTwoGreenPlan.REPO
                     displayList.Add(vehicle);
                 }
                    return displayList;
-            }
-
-            return null;
-        }
-
-        public List<Vehicle> ViewGasVehicles()
-        {
-            foreach (var vehicle in _vehicle)
-            {
-                if (vehicle.VehicleType == "Gas")
-                {
-                    _vehicle.Add(vehicle);
-                    return _vehicle;
-                }
-            }
-            return null;
-        }
-        public List<Vehicle> ViewElectricVehicles()
-        {
-            foreach (var vehicle in _vehicle)
-            {
-                if (vehicle.VehicleType == "Electric")
-                {
-                    _vehicle.Add(vehicle);
-                    return _vehicle;
-                }
-            }
-            return null;
-        }
-        public List<Vehicle> ViewHybridVehicles()
-        {
-            foreach (var vehicle in _vehicle)
-            {
-                if (vehicle.VehicleType == "Hybrid")
-                {
-
-                    _vehicle.Add(vehicle);
-                    return _vehicle;
-                }
             }
             return null;
         }
@@ -92,18 +52,6 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             return null;
         }
-        public Vehicle RemoveVehicleById(int vehicleId)
-        {
-            foreach (var vehicle in _vehicle)
-            {
-                if (vehicle.IdNumber == vehicleId)
-                {
-                    _vehicle.Remove(vehicle);
-                    return vehicle;
-                }
-            }
-            return null;
-        }
         public bool RemoveVehicle(Vehicle vehicle)
         {
             if (vehicle is null)
@@ -112,11 +60,6 @@ namespace ChallengeTwoGreenPlan.REPO
             }
             _vehicle.Remove(vehicle);
             return true;
-        }
-        public int GetListLength()
-        {
-            int listLength = _vehicle.Count();
-            return listLength;
         }
         public bool UpdateVehicle(int idToUpdate, Vehicle oldVehicle)
         {
