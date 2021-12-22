@@ -6,7 +6,6 @@ namespace ChallengeOneCafe.REPO
     public class CafeREPO
     {
         private readonly List<MenuItem> _menuItem = new List<MenuItem>();
-    
         private int menuNumberCounter = 0;
         
         public bool CreateMenuItem(MenuItem menuItemToCreate)
@@ -20,14 +19,6 @@ namespace ChallengeOneCafe.REPO
             _menuItem.Add(menuItemToCreate);
             return true;
         }
-        public string ListSide(List<string> listOfSideToPullFrom)
-        {
-            foreach (var side in listOfSideToPullFrom)
-            {
-                return side;
-            }
-            return null;
-        }
         public List<string> ListAllSides(MenuItem menuItem)
         {
             List<string> _sides = new List<string>();
@@ -38,16 +29,6 @@ namespace ChallengeOneCafe.REPO
                 return _sides;
             }
             return null;
-        }
-        public List<string> CreateSideItem(string sideItemToAdd)
-        {
-            if (sideItemToAdd is null)
-            {
-                return null; 
-            }
-            List<string> _sides = new List<string>();
-            _sides.Add(sideItemToAdd);
-            return _sides;
         }
         public List<MenuItem> ViewMenuList()
         {

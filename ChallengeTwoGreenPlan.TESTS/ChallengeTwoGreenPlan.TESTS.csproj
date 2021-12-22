@@ -55,6 +55,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeTwoGreenPlan.POCO\ChallengeTwoGreenPlan.POCO.csproj">
+      <Project>{5C89F23D-CCCB-4F05-AAC9-BA1CBA8578E8}</Project>
+      <Name>ChallengeTwoGreenPlan.POCO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChallengeTwoGreenPlan.REPO\ChallengeTwoGreenPlan.REPO.csproj">
+      <Project>{e47d04f3-f66c-4b8f-9d78-dc10d43f4659}</Project>
+      <Name>ChallengeTwoGreenPlan.REPO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
